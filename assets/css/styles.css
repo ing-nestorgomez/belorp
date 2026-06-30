@@ -1,0 +1,202 @@
+/* --- RESET Y FUENTES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #fafafa;
+  color: #1a1a1a;
+  margin: 0;
+  padding-top: 75px; /* Para que el contenido no quede debajo del header fijo */
+}
+
+/* --- HEADER FIJO (Top Bar) --- */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85); /* Efecto glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 1000;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Navegación */
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #d4a13e; /* Color dorado/accent que combina con tu logo */
+}
+
+/* --- ANIMACIÓN DE FRANJAS (Derecha) --- */
+.animated-stripes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.animated-stripes span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  transition: all 0.3s ease;
+  transform-origin: left center;
+}
+
+/* Colores de las franjas (para que coincidan con tu logo) */
+.animated-stripes span:nth-child(1) {
+  background-color: #1a1a1a; /* Negro */
+  animation: stripeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+.animated-stripes span:nth-child(2) {
+  background-color: #d4a13e; /* Dorado */
+  animation: stripeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.animated-stripes span:nth-child(3) {
+  background-color: #b31b1b; /* Rojo */
+  animation: stripeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+/* Animación de entrada: las franjas vienen desde la derecha */
+@keyframes stripeSlide {
+  0% {
+    transform: translateX(40px);
+    opacity: 0;
+    width: 0px;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    width: 28px;
+  }
+}
+
+/* --- BANNER Y CONTENIDO PRINCIPAL --- */
+.banner {
+  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 24px;
+  background-image: url('../images/banner.jpg'); /* Imagen de fondo opcional */
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+}
+
+.banner h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.banner p {
+  font-size: 1.25rem;
+  color: #4a4a4a;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+/* --- FOOTER OSCURO --- */
+.site-footer {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  padding: 40px 0 16px;
+  margin-top: 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px 32px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.footer-grid h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-grid ul li {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #a0a0a0;
+}
+
+.footer-copy {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #666;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .banner h1 {
+    font-size: 2.2rem;
+  }
+}
