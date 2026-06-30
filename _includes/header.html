@@ -1,5 +1,5 @@
 <header class="top-bar">
-  <!-- Franjas de colores en la parte superior -->
+  <!-- Franjas de colores con degradado -->
   <div class="color-stripes">
     <span class="stripe-yellow"></span>
     <span class="stripe-blue"></span>
@@ -7,17 +7,17 @@
   </div>
   
   <div class="container">
-    <!-- Menú desplegable (oculto por defecto) -->
+    <!-- Menú desplegable -->
     <nav class="dropdown-menu" id="dropdownMenu">
       <ul>
-        <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+        <li><a href="{{ '/' | relative_url }}" class="active">Inicio</a></li>
         <li><a href="#">Servicios</a></li>
         <li><a href="#">Nosotros</a></li>
         <li><a href="#">Contacto</a></li>
       </ul>
     </nav>
     
-    <!-- Logo a la derecha (click para abrir menú) -->
+    <!-- Logo a la derecha -->
     <div class="logo-container" id="logoTrigger">
       <div class="logo-icon">
         <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Proled">
