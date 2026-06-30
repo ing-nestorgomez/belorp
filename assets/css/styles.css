@@ -6,141 +6,164 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #fafafa;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: #ffffff;
   color: #1a1a1a;
   margin: 0;
-  padding-top: 75px; /* Para que el contenido no quede debajo del header fijo */
+  padding-top: 120px; /* Espacio para el header con franjas */
+  line-height: 1.6;
 }
 
-/* --- HEADER FIJO (Top Bar) --- */
-.top-bar {
+/* --- FRANJAS DE COLORES --- */
+.color-stripes {
+  display: flex;
+  height: 6px;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1001;
+}
+
+.color-stripes span {
+  flex: 1;
+  height: 100%;
+}
+
+.stripe-yellow {
+  background-color: #f5c518; /* Amarillo */
+}
+
+.stripe-blue {
+  background-color: #0033a0; /* Azul */
+}
+
+.stripe-red {
+  background-color: #da291c; /* Rojo */
+}
+
+/* --- HEADER FIJO --- */
+.top-bar {
+  position: fixed;
+  top: 6px; /* Debajo de las franjas */
+  left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.85); /* Efecto glassmorphism */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: #ffffff;
+  border-bottom: 2px solid #e8e8e8;
   z-index: 1000;
   padding: 12px 0;
-  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* Logo */
-.logo img {
-  height: 40px;
-  width: auto;
-  display: block;
+/* --- LOGO Y NOMBRE --- */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Navegación */
+.logo-icon img {
+  height: 50px;
+  width: auto;
+}
+
+.company-name {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.company-name h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 2px;
+  font-family: 'Georgia', serif;
+}
+
+.company-tagline {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  font-family: 'Georgia', serif;
+}
+
+/* --- NAVEGACIÓN --- */
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 40px;
+  align-items: center;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #1a1a1a;
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
+  color: #333;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
 }
 
-.nav-links a:hover {
-  color: #d4a13e; /* Color dorado/accent que combina con tu logo */
+.nav-links a:hover,
+.nav-links a.active {
+  color: #0033a0;
+  border-bottom-color: #0033a0;
 }
 
-/* --- ANIMACIÓN DE FRANJAS (Derecha) --- */
-.animated-stripes {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  cursor: pointer;
+/* --- CONTENIDO PRINCIPAL --- */
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 40px 60px;
 }
 
-.animated-stripes span {
-  display: block;
-  width: 28px;
-  height: 3px;
-  border-radius: 4px;
-  background-color: #1a1a1a;
-  transition: all 0.3s ease;
-  transform-origin: left center;
+/* --- SECCIÓN RESEÑA HISTÓRICA --- */
+.historical-section {
+  background: #ffffff;
+  padding: 40px 60px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
-/* Colores de las franjas (para que coincidan con tu logo) */
-.animated-stripes span:nth-child(1) {
-  background-color: #1a1a1a; /* Negro */
-  animation: stripeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.1s;
-}
-
-.animated-stripes span:nth-child(2) {
-  background-color: #d4a13e; /* Dorado */
-  animation: stripeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.3s;
-}
-
-.animated-stripes span:nth-child(3) {
-  background-color: #b31b1b; /* Rojo */
-  animation: stripeSlide 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.5s;
-}
-
-/* Animación de entrada: las franjas vienen desde la derecha */
-@keyframes stripeSlide {
-  0% {
-    transform: translateX(40px);
-    opacity: 0;
-    width: 0px;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-    width: 28px;
-  }
-}
-
-/* --- BANNER Y CONTENIDO PRINCIPAL --- */
-.banner {
-  background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 60px 24px;
-  background-image: url('../images/banner.jpg'); /* Imagen de fondo opcional */
-  background-size: cover;
-  background-position: center;
-  background-blend-mode: overlay;
-}
-
-.banner h1 {
-  font-size: 3.5rem;
+.historical-section .section-title {
+  font-size: 2.2rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #1a1a1a;
+  color: #0033a0;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid #f5c518;
+  display: inline-block;
+}
+
+.historical-section .company-name-highlight {
+  font-weight: 700;
+  color: #0033a0;
+}
+
+.historical-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: justify;
+  color: #2a2a2a;
+  font-family: 'Georgia', serif;
   margin-bottom: 16px;
 }
 
-.banner p {
-  font-size: 1.25rem;
-  color: #4a4a4a;
-  max-width: 640px;
-  margin: 0 auto 32px;
+.historical-section p:last-child {
+  margin-bottom: 0;
 }
 
 /* --- FOOTER OSCURO --- */
@@ -148,7 +171,8 @@ body {
   background-color: #0d0d0d;
   color: #e0e0e0;
   padding: 40px 0 16px;
-  margin-top: 60px;
+  margin-top: 40px;
+  font-family: 'Georgia', serif;
 }
 
 .footer-grid {
@@ -157,7 +181,7 @@ body {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px 32px;
+  padding: 0 40px 32px;
   border-bottom: 1px solid #2a2a2a;
 }
 
@@ -166,6 +190,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
 .footer-grid ul {
@@ -184,19 +209,46 @@ body {
   padding-top: 20px;
   font-size: 0.85rem;
   color: #666;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
 }
 
-/* Responsive para móviles */
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  body {
+    padding-top: 100px;
   }
+  
+  .container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+  }
+  
+  .nav-links {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .company-name h1 {
+    font-size: 1.4rem;
+  }
+  
+  .historical-section {
+    padding: 24px 20px;
+  }
+  
+  .historical-section .section-title {
+    font-size: 1.6rem;
+  }
+  
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+    padding: 0 20px 24px;
   }
-  .banner h1 {
-    font-size: 2.2rem;
+  
+  .main-content {
+    padding: 20px;
   }
 }
