@@ -21,10 +21,12 @@ body {
   position: absolute;
   bottom: -2px; /* Pegado a la parte inferior de la barra */
   left: 0;
-  width: 200px;
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
   height: 40px;
   z-index: 999;
   overflow: visible;
+  margin: 0;
+  padding: 0;
 }
 
 /* Estilo base para todas las franjas */
@@ -36,6 +38,8 @@ body {
   transform-origin: left center;
   opacity: 0;
   transform: translateX(-100%);
+  margin: 0;
+  padding: 0;
 }
 
 /* --- FRANJA ROJA (La más grande, fondo) --- */
