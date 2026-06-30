@@ -70,7 +70,7 @@ body {
 
 /* --- FRANJA ROJA (Fondo, más grande) --- */
 .stripe-red {
-  width: 50%;
+  width: 65%;
   height: 90%;
   background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
   border-radius: 0 4px 0 0;
@@ -82,7 +82,7 @@ body {
 
 /* --- FRANJA AZUL (Medio) --- */
 .stripe-blue {
-  width: 30%;
+  width: 40%;
   height: 60%;
   background: linear-gradient(90deg, #0033a0 0%, #1a4fa0 40%, #2a6ab0 100%);
   border-radius: 0 12px 0 0;
@@ -94,7 +94,7 @@ body {
 
 /* --- FRANJA AMARILLA (Arriba, más pequeña) --- */
 .stripe-yellow {
-  width: 20%;
+  width: 25%;
   height: 30%;
   background: linear-gradient(90deg, #f5c518 0%, #ffd700 40%, #f5a623 100%);
   border-radius: 0 4px 0 0;
