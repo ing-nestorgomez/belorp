@@ -1,0 +1,10 @@
+title: Proled
+email: info@proled.com.ve
+description: >- 
+  Sitio web corporativo de Proled.
+baseurl: "" 
+url: "https://proled.com.ve" 
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
