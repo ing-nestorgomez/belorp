@@ -48,6 +48,7 @@ body {
   height: 38px;
   background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
   border-radius: 0 4px 0 0;
+  transform: skewX(-15deg); /* Inicia la inclinación horizontalmente */
   z-index: 1;
   animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.5s;
