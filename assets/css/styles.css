@@ -10,18 +10,44 @@ body {
   background-color: #ffffff;
   color: #1a1a1a;
   margin: 0;
-  padding-top: 76px; /* Altura del header + espacio */
+  padding-top: 76px;
   line-height: 1.6;
 }
 
-/* inicio nuevas franjas */
+/* --- HEADER FIJO --- */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 2px solid #e8e8e8;
+  z-index: 1000;
+  padding: 12px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.top-bar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  min-height: 60px;
+}
 
 /* --- CONTENEDOR DE FRANJAS SUPERPUESTAS --- */
 .stripes-container {
   position: absolute;
-  bottom: -2px; /* Pegado a la parte inferior de la barra */
+  bottom: -2px;
   left: 0;
-  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  width: 100%;
   height: 40px;
   z-index: 999;
   overflow: visible;
@@ -42,34 +68,33 @@ body {
   padding: 0;
 }
 
-/* --- FRANJA ROJA (La más grande, fondo) --- */
+/* --- FRANJA ROJA (Fondo, más grande) --- */
 .stripe-red {
-  width: 180px;
+  width: 50%;
   height: 38px;
   background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
-  border-radius: 0 4px 0 0;
-  transform: skewX(-15deg); /* Inicia la inclinación horizontalmente */
+  border-radius: 0 8px 0 0;
   z-index: 1;
   animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.5s;
   box-shadow: 0 2px 8px rgba(218, 41, 28, 0.3);
 }
 
-/* --- FRANJA AZUL (Tamaño mediano, en medio) --- */
+/* --- FRANJA AZUL (Medio) --- */
 .stripe-blue {
-  width: 140px;
+  width: 40%;
   height: 28px;
   background: linear-gradient(90deg, #0033a0 0%, #1a4fa0 40%, #2a6ab0 100%);
-  border-radius: 0 12px 0 0;
+  border-radius: 0 6px 0 0;
   z-index: 2;
   animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.3s;
   box-shadow: 0 2px 8px rgba(0, 51, 160, 0.3);
 }
 
-/* --- FRANJA AMARILLA (La más pequeña, arriba) --- */
+/* --- FRANJA AMARILLA (Arriba, más pequeña) --- */
 .stripe-yellow {
-  width: 100px;
+  width: 30%;
   height: 18px;
   background: linear-gradient(90deg, #f5c518 0%, #ffd700 40%, #f5a623 100%);
   border-radius: 0 4px 0 0;
@@ -91,7 +116,7 @@ body {
   }
 }
 
-/* --- HOVER: Efecto sutil de elevación --- */
+/* --- HOVER: Efecto de elevación --- */
 .stripes-container:hover .stripe {
   filter: brightness(1.1);
   transition: filter 0.3s ease;
@@ -107,93 +132,6 @@ body {
 
 .stripes-container:hover .stripe-yellow {
   box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4);
-}
-
-/* fin nuevas franjas */
-
-/* --- FRANJAS DE COLORES CON DEGRADADO Y ESQUINAS REDONDEADAS --- */
-.color-stripes {
-  display: flex;
-  height: 8px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1001;
-  overflow: hidden;
-}
-
-.color-stripes span {
-  flex: 1;
-  height: 100%;
-  transform: translateX(-100%); /* Comienzan fuera de la pantalla */
-  opacity: 0;
-}
-
-/* Franja 1: Degradado Amarillo */
-.stripe-yellow {
-  background: linear-gradient(90deg, #f5c518 0%, #ffd700 50%, #f5a623 100%);
-  animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.1s;
-  border-radius: 0;
-}
-
-/* Franja 2: Degradado Azul con esquina redondeada a la derecha */
-.stripe-blue {
-  background: linear-gradient(90deg, #0033a0 0%, #1a4fa0 50%, #2a6ab0 100%);
-  animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.3s;
-  border-radius: 0;
-}
-
-/* Franja 3: Degradado Rojo */
-.stripe-red {
-  background: linear-gradient(90deg, #da291c 0%, #e84430 50%, #f05540 100%);
-  animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: 0.5s;
-  border-radius: 0 8px 0 0; /* Esquina redondeada superior derecha */
-}
-
-/* Animación de entrada: desde la izquierda hacia la derecha */
-@keyframes stripeSlideIn {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Efecto de brillo sutil al pasar el mouse */
-.color-stripes:hover span {
-  filter: brightness(1.05);
-  transition: filter 0.3s ease;
-}
-
-/* --- HEADER FIJO --- */
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 2px solid #e8e8e8;
-  z-index: 1000;
-  padding: 12px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
-  min-height: 60px;
 }
 
 /* --- LOGO A LA DERECHA --- */
@@ -224,7 +162,7 @@ body {
   right: 40px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   padding: 8px 0;
   min-width: 200px;
   opacity: 0;
@@ -244,11 +182,6 @@ body {
 
 .dropdown-menu ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-menu ul li {
   padding: 0;
   margin: 0;
 }
@@ -277,14 +210,14 @@ body {
   font-weight: 600;
 }
 
-/* --- Overlay para cerrar el menú al hacer clic fuera --- */
+/* --- OVERLAY PARA CERRAR MENÚ --- */
 .menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   z-index: 1002;
   display: none;
 }
@@ -305,7 +238,7 @@ body {
   background: #ffffff;
   padding: 40px 60px;
   border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .historical-section .section-title {
@@ -389,80 +322,56 @@ body {
   body {
     padding-top: 100px;
   }
-  
+
   .container {
     padding: 0 20px;
   }
-  
+
   .dropdown-menu {
     right: 20px;
     min-width: 180px;
     top: 70px;
   }
-  
+
   .logo-icon img {
     height: 40px;
   }
-  
+
   .historical-section {
     padding: 24px 20px;
   }
-  
+
   .historical-section .section-title {
     font-size: 1.6rem;
   }
-  
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 0 20px 24px;
   }
-  
+
   .main-content {
     padding: 20px;
   }
-}
 
-/* --- AJUSTE DEL HEADER PARA LAS NUEVAS FRANJAS --- */
-.top-bar {
-  position: fixed;
-  top: 8px; /* Coincide con la altura de las franjas */
-  left: 0;
-  width: 100%;
-  background: #ffffff;
-  border-bottom: none; /* Eliminamos el borde inferior */
-  z-index: 1000;
-  padding: 8px 0;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
+  /* Ajuste de franjas en móvil */
+  .stripes-container {
+    height: 30px;
+  }
 
-/* Sombra adicional cuando hay scroll */
-.top-bar.scrolled {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
+  .stripe-red {
+    height: 28px;
+    width: 60%;
+  }
 
-/* Ajuste del body para el nuevo tamaño de franjas */
-body {
-  padding-top: 68px; /* 8px (franjas) + 60px (header) */
-}
+  .stripe-blue {
+    height: 20px;
+    width: 45%;
+  }
 
-/* Eliminar cualquier margen/padding que afecte a las franjas */
-.stripes-container {
-  margin: 0;
-  padding: 0;
-}
-
-/* Si quieres la roja más grande (60%) */
-.stripe-red {
-  width: 60%;
-}
-
-/* Si quieres la azul más grande (45%) */
-.stripe-blue {
-  width: 45%;
-}
-
-/* Si quieres la amarilla más grande (35%) */
-.stripe-yellow {
-  width: 35%;
+  .stripe-yellow {
+    height: 12px;
+    width: 30%;
+  }
 }
