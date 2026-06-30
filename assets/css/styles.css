@@ -71,7 +71,7 @@ body {
 /* --- FRANJA ROJA (Fondo, más grande) --- */
 .stripe-red {
   width: 50%;
-  height: 50px;
+  height: 90%;
   background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
   border-radius: 0 4px 0 0;
   z-index: 1;
@@ -82,8 +82,8 @@ body {
 
 /* --- FRANJA AZUL (Medio) --- */
 .stripe-blue {
-  width: 35%;
-  height: 40px;
+  width: 30%;
+  height: 60%;
   background: linear-gradient(90deg, #0033a0 0%, #1a4fa0 40%, #2a6ab0 100%);
   border-radius: 0 12px 0 0;
   z-index: 2;
@@ -94,8 +94,8 @@ body {
 
 /* --- FRANJA AMARILLA (Arriba, más pequeña) --- */
 .stripe-yellow {
-  width: 30%;
-  height: 30px;
+  width: 20%;
+  height: 30%;
   background: linear-gradient(90deg, #f5c518 0%, #ffd700 40%, #f5a623 100%);
   border-radius: 0 4px 0 0;
   z-index: 3;
@@ -358,20 +358,5 @@ body {
   /* Ajuste de franjas en móvil */
   .stripes-container {
     height: 30px;
-  }
-
-  .stripe-red {
-    height: 28px;
-    width: 60%;
-  }
-
-  .stripe-blue {
-    height: 20px;
-    width: 45%;
-  }
-
-  .stripe-yellow {
-    height: 12px;
-    width: 30%;
   }
 }
