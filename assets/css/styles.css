@@ -14,6 +14,98 @@ body {
   line-height: 1.6;
 }
 
+/* inicio nuevas franjas */
+
+/* --- CONTENEDOR DE FRANJAS SUPERPUESTAS --- */
+.stripes-container {
+  position: absolute;
+  bottom: -2px; /* Pegado a la parte inferior de la barra */
+  left: 0;
+  width: 200px;
+  height: 40px;
+  z-index: 999;
+  overflow: visible;
+}
+
+/* Estilo base para todas las franjas */
+.stripe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  transform-origin: left center;
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+/* --- FRANJA ROJA (La más grande, fondo) --- */
+.stripe-red {
+  width: 180px;
+  height: 38px;
+  background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
+  border-radius: 0 8px 0 0;
+  z-index: 1;
+  animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.5s;
+  box-shadow: 0 2px 8px rgba(218, 41, 28, 0.3);
+}
+
+/* --- FRANJA AZUL (Tamaño mediano, en medio) --- */
+.stripe-blue {
+  width: 140px;
+  height: 28px;
+  background: linear-gradient(90deg, #0033a0 0%, #1a4fa0 40%, #2a6ab0 100%);
+  border-radius: 0 6px 0 0;
+  z-index: 2;
+  animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 51, 160, 0.3);
+}
+
+/* --- FRANJA AMARILLA (La más pequeña, arriba) --- */
+.stripe-yellow {
+  width: 100px;
+  height: 18px;
+  background: linear-gradient(90deg, #f5c518 0%, #ffd700 40%, #f5a623 100%);
+  border-radius: 0 4px 0 0;
+  z-index: 3;
+  animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.1s;
+  box-shadow: 0 2px 8px rgba(245, 197, 24, 0.3);
+}
+
+/* --- ANIMACIÓN DE ENTRADA --- */
+@keyframes stripeSlideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* --- HOVER: Efecto sutil de elevación --- */
+.stripes-container:hover .stripe {
+  filter: brightness(1.1);
+  transition: filter 0.3s ease;
+}
+
+.stripes-container:hover .stripe-red {
+  box-shadow: 0 4px 16px rgba(218, 41, 28, 0.4);
+}
+
+.stripes-container:hover .stripe-blue {
+  box-shadow: 0 4px 16px rgba(0, 51, 160, 0.4);
+}
+
+.stripes-container:hover .stripe-yellow {
+  box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4);
+}
+
+/* fin nuevas franjas */
+
 /* --- FRANJAS DE COLORES CON DEGRADADO Y ESQUINAS REDONDEADAS --- */
 .color-stripes {
   display: flex;
