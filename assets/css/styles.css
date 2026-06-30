@@ -71,7 +71,8 @@ body {
 /* --- FRANJA ROJA (Fondo, más grande) --- */
 .stripe-red {
   width: 65%;
-  height: 90%;
+  height: 170%;
+  transform: skewX(-15deg); /* Inicia la inclinación horizontalmente */
   background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
   border-radius: 0 4px 0 0;
   z-index: 1;
