@@ -31,27 +31,27 @@ body {
 }
 
 .stripe-yellow {
-  background-color: #f5c518; /* Amarillo */
+  background-color: #f5c518;
 }
 
 .stripe-blue {
-  background-color: #0033a0; /* Azul */
+  background-color: #0033a0;
 }
 
 .stripe-red {
-  background-color: #da291c; /* Rojo */
+  background-color: #da291c;
 }
 
 /* --- HEADER FIJO --- */
 .top-bar {
   position: fixed;
-  top: 6px; /* Debajo de las franjas */
+  top: 6px;
   left: 0;
   width: 100%;
   background: #ffffff;
   border-bottom: 2px solid #e8e8e8;
   z-index: 1000;
-  padding: 12px 0;
+  padding: 8px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
@@ -60,65 +60,106 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Alinea todo a la derecha */
+  align-items: center;
+  position: relative;
+}
+
+/* --- LOGO A LA DERECHA --- */
+.logo-container {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  z-index: 1002;
+  display: flex;
   align-items: center;
 }
 
-/* --- LOGO Y NOMBRE --- */
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.logo-container:hover {
+  background-color: #f5f5f5;
 }
 
 .logo-icon img {
   height: 50px;
   width: auto;
+  display: block;
 }
 
-.company-name {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
+/* --- MENÚ DESPLEGABLE --- */
+.dropdown-menu {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  padding: 8px 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: top right;
+  border: 1px solid #e8e8e8;
+  z-index: 1003;
 }
 
-.company-name h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu ul li a {
+  display: block;
+  padding: 12px 24px;
   color: #1a1a1a;
-  letter-spacing: 2px;
-  font-family: 'Georgia', serif;
-}
-
-.company-tagline {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #666;
-  font-family: 'Georgia', serif;
-}
-
-/* --- NAVEGACIÓN --- */
-.nav-links {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-
-.nav-links a {
   text-decoration: none;
-  color: #333;
   font-family: 'Georgia', serif;
   font-size: 1rem;
-  letter-spacing: 0.5px;
-  transition: color 0.3s ease;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.dropdown-menu ul li a:hover {
+  background-color: #f5f8ff;
   color: #0033a0;
-  border-bottom-color: #0033a0;
+  border-left-color: #0033a0;
+}
+
+.dropdown-menu ul li a.active {
+  background-color: #f0f4ff;
+  color: #0033a0;
+  border-left-color: #0033a0;
+  font-weight: 600;
+}
+
+/* --- Overlay para cerrar el menú al hacer clic fuera --- */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0);
+  z-index: 1002;
+  display: none;
+}
+
+.menu-overlay.active {
+  display: block;
 }
 
 /* --- CONTENIDO PRINCIPAL --- */
@@ -219,19 +260,17 @@ body {
   }
   
   .container {
-    flex-direction: column;
-    gap: 12px;
     padding: 0 20px;
   }
   
-  .nav-links {
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .dropdown-menu {
+    right: 20px;
+    min-width: 180px;
+    top: 70px;
   }
   
-  .company-name h1 {
-    font-size: 1.4rem;
+  .logo-icon img {
+    height: 40px;
   }
   
   .historical-section {
