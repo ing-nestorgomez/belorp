@@ -1,17 +1,67 @@
-// Efecto de scroll en el header
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('.top-bar');
-  if (window.scrollY > 50) {
-    header.style.background = 'rgba(255, 255, 255, 0.98)';
+// ============================================
+// MENÚ DESPLEGABLE - Toggle al hacer clic en el logo
+// ============================================
+
+const logoTrigger = document.getElementById('logoTrigger');
+const dropdownMenu = document.getElementById('dropdownMenu');
+let menuOpen = false;
+
+// Crear overlay para cerrar al hacer clic fuera
+const overlay = document.createElement('div');
+overlay.className = 'menu-overlay';
+document.body.appendChild(overlay);
+
+// Función para abrir/cerrar el menú
+function toggleMenu(e) {
+  e.stopPropagation();
+  menuOpen = !menuOpen;
+  
+  if (menuOpen) {
+    dropdownMenu.classList.add('active');
+    overlay.classList.add('active');
+    logoTrigger.style.backgroundColor = '#f0f4ff';
   } else {
-    header.style.background = 'rgba(255, 255, 255, 0.85)';
+    dropdownMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    logoTrigger.style.backgroundColor = 'transparent';
+  }
+}
+
+// Evento: clic en el logo
+logoTrigger.addEventListener('click', toggleMenu);
+
+// Evento: clic en el overlay (cierra el menú)
+overlay.addEventListener('click', function() {
+  if (menuOpen) {
+    toggleMenu(new Event('click'));
   }
 });
 
-// (Opcional) Si quieres que las franjas tengan interacción al pasar el mouse
-document.querySelector('.animated-stripes')?.addEventListener('mouseenter', function() {
-  this.style.transform = 'scale(1.05)';
+// Evento: tecla ESC para cerrar el menú
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && menuOpen) {
+    toggleMenu(new Event('click'));
+  }
 });
-document.querySelector('.animated-stripes')?.addEventListener('mouseleave', function() {
-  this.style.transform = 'scale(1)';
+
+// Cerrar menú al hacer clic en un enlace
+document.querySelectorAll('.dropdown-menu ul li a').forEach(link => {
+  link.addEventListener('click', function() {
+    if (menuOpen) {
+      toggleMenu(new Event('click'));
+    }
+  });
+});
+
+// ============================================
+// EFECTO DE SCROLL EN EL HEADER
+// ============================================
+
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.top-bar');
+  if (window.scrollY > 50) {
+    header.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)';
+  } else {
+    header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.05)';
+  }
 });
