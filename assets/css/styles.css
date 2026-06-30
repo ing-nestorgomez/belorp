@@ -324,3 +324,26 @@ body {
     padding: 20px;
   }
 }
+
+/* --- AJUSTE DEL HEADER PARA LAS NUEVAS FRANJAS --- */
+.top-bar {
+  position: fixed;
+  top: 8px; /* Coincide con la altura de las franjas */
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: none; /* Eliminamos el borde inferior */
+  z-index: 1000;
+  padding: 8px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Sombra adicional cuando hay scroll */
+.top-bar.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Ajuste del body para el nuevo tamaño de franjas */
+body {
+  padding-top: 68px; /* 8px (franjas) + 60px (header) */
+}
