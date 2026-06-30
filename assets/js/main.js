@@ -1,4 +1,19 @@
 // ============================================
+// REINICIAR ANIMACIÓN DE FRANJAS
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const stripes = document.querySelectorAll('.stripe');
+  
+  // Forzar reinicio de la animación
+  stripes.forEach((stripe) => {
+    stripe.style.animation = 'none';
+    stripe.offsetHeight; // Forzar reflow
+    stripe.style.animation = '';
+  });
+});
+
+// ============================================
 // MENÚ DESPLEGABLE - Toggle al hacer clic en el logo
 // ============================================
 
