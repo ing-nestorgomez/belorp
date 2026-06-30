@@ -444,3 +444,9 @@ body {
 body {
   padding-top: 68px; /* 8px (franjas) + 60px (header) */
 }
+
+/* Eliminar cualquier margen/padding que afecte a las franjas */
+.stripes-container {
+  margin: 0;
+  padding: 0;
+}
