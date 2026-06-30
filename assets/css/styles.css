@@ -450,3 +450,18 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Si quieres la roja más grande (60%) */
+.stripe-red {
+  width: 60%;
+}
+
+/* Si quieres la azul más grande (45%) */
+.stripe-blue {
+  width: 45%;
+}
+
+/* Si quieres la amarilla más grande (35%) */
+.stripe-yellow {
+  width: 35%;
+}
