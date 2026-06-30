@@ -10,7 +10,7 @@ body {
   background-color: #ffffff;
   color: #1a1a1a;
   margin: 0;
-  padding-top: 120px; /* Espacio para el header con franjas */
+  padding-top: 76px; /* Altura del header + espacio */
   line-height: 1.6;
 }
 
@@ -170,13 +170,13 @@ body {
 /* --- HEADER FIJO --- */
 .top-bar {
   position: fixed;
-  top: 6px;
+  top: 0;
   left: 0;
   width: 100%;
   background: #ffffff;
   border-bottom: 2px solid #e8e8e8;
   z-index: 1000;
-  padding: 8px 0;
+  padding: 12px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
@@ -185,9 +185,10 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
-  justify-content: flex-end; /* Alinea todo a la derecha */
+  justify-content: flex-end;
   align-items: center;
   position: relative;
+  min-height: 60px;
 }
 
 /* --- LOGO A LA DERECHA --- */
