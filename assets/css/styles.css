@@ -72,7 +72,7 @@ body {
 .stripe-red {
   width: 65%;
   height: 170%;
-  clip-path: polygon(0px 0px, 100% 0%, 95% 100%, 0px 100%); /* Corta el polígono definiendo las esquinas x% y% */
+  clip-path: polygon(0px 0px, 100% 0%, 96% 100%, 0px 100%); /* Corta el polígono definiendo las esquinas x% y% */
   background: linear-gradient(90deg, #da291c 0%, #e84430 40%, #f05540 100%);
   border-radius: 0 4px 0 0;
   z-index: 1;
