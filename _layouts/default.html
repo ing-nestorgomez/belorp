@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }} | {{ page.title }}</title>
+  
+  <!-- Enlace a los estilos -->
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  
+  <!-- Fuente elegante (opcional, pero recomendado para un look moderno) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <!-- Incluye el Header -->
+  {% include header.html %}
+  
+  <!-- Contenido principal de la página -->
+  <main>
+    {{ content }}
+  </main>
+  
+  <!-- Incluye el Footer -->
+  {% include footer.html %}
+
+  <!-- Scripts para animaciones -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
