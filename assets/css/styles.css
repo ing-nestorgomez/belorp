@@ -158,6 +158,12 @@ body {
   display: block;
 }
 
+/* En móviles, el logo se reduce */
+@media (max-width: 768px) {
+  .logo-icon img {
+    height: 30px; /* Reducido de 50px a 30px */
+  }
+}
 /* --- MENÚ DESPLEGABLE --- */
 .dropdown-menu {
   position: fixed;
