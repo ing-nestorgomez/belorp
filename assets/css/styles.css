@@ -85,9 +85,9 @@ body {
 .stripe-blue {
   width: 40%;
   height: 100%;
-  clip-path: polygon(0px 0px, 100% 0%, 95% 100%, 0px 100%); /* Corta el polígono definiendo las esquinas x% y% */
+  clip-path: polygon(0px 0px, 100% 0%, 98% 100%, 0px 100%); /* Corta el polígono definiendo las esquinas x% y% */
   background: linear-gradient(90deg, #0033a0 0%, #1a4fa0 40%, #2a6ab0 100%);
-  border-radius: 0 12px 0 0;
+  border-radius: 0 24px 0 0;
   z-index: 2;
   animation: stripeSlideIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: 0.3s;
