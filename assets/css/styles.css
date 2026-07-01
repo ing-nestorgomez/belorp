@@ -368,4 +368,15 @@ body {
   .stripes-container {
     height: 30px;
   }
+  .stripe-red {
+    height: 210%;
+  }
+  .stripe-blue {
+    width: 50%;
+    height: 120%;
+  }
+  .stripe-yellow {
+    width: 40%;
+    height: 50%;
+  }
 }
