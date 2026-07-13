@@ -927,12 +927,12 @@ h1, h2, h3, h4 {
 /* ================= EFECTO HOVER (ACERCAMIENTO) ================= */
 
 .map-interactive-container:hover .layer-country {
-  opacity: 0.3; /* El mapa completo se desvanece al fondo */
+  opacity: 0.1; /* El mapa completo se desvanece al fondo */
   transform: scale(1.08); /* Ligero alejamiento/movimiento de perspectiva */
 }
 
 .map-interactive-container:hover .layer-state {
-  opacity: 0.5; /* El estado brilla al máximo */
+  opacity: 0.3; /* El estado brilla al máximo */
   transform: scale(1.25); /* EFECTO ACERCAMIENTO: Se expande simulando una lupa */
   filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
 }
