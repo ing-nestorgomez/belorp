@@ -29,67 +29,35 @@
     </div>
 
     <div class="footer-col footer-map-col">
-      <h4>COBERTURA NACIONAL</h4>
-      <div class="map-wrapper">
-        <svg class="venezuela-map-svg" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="anzoateguiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#1d4ed8" />
-              <stop offset="100%" stop-color="#3b82f6" />
-            </linearGradient>
-            <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#10b981" stop-opacity="1"/>
-              <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
+  <h4>COBERTURA NACIONAL</h4>
+  <div class="map-interactive-container">
+    
+    <img src="venezuela.svg" class="map-layer layer-country" alt="Mapa de Venezuela">
+    
+    <img src="anzoategui.svg" class="map-layer layer-state" alt="Estado Anzoátegui">
+    
+    <svg class="map-overlay-tech" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#10b981" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      
+      <circle class="hq-pulse" cx="372" cy="182" r="30" fill="url(#nodeGlow)" />
+      <circle class="hq-pulse delay-1" cx="372" cy="182" r="30" fill="url(#nodeGlow)" />
+      
+      <circle class="hq-center-dot" cx="372" cy="182" r="6" fill="#10b981" />
+      
+      <g class="hq-label">
+        <rect x="395" y="158" width="160" height="32" rx="6" fill="#020617" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="407" y="178" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.04em">SAN JOSÉ DE GUANIPA</text>
+      </g>
+    </svg>
 
-          <g class="venezuela-mesh" stroke="#1e293b" stroke-width="1.2" fill="#1e293b">
-            
-            <path d="M 60,160 
-                     C 65,130  80,105 100,105 
-                     C 105,105 110,120 105,135 
-                     C 120,110 145,100 165,115 
-                     C 185,125 190,110 210,105 
-                     C 230,100 255,105 275,112 
-                     C 300,120 320,115 340,110 
-                     C 365,105 390,102 410,115 
-                     C 435,100 465,102 485,115
-                     C 500,125 515,145 505,165 
-                     C 495,185 520,200 500,225
-                     C 485,240 495,265 480,285
-                     C 460,310 440,335 435,365
-                     C 430,390 400,425 375,430
-                     C 350,435 325,410 310,395
-                     C 290,380 270,410 250,420
-                     C 235,425 220,400 225,370
-                     C 230,340 215,310 205,295
-                     C 195,280 165,285 150,270
-                     C 135,255 120,265 100,250
-                     C 85,235  70,240  65,220
-                     C 60,200  45,190  45,175 Z" />
-
-            <path class="state-anzoategui" 
-                  d="M 340,112 
-                     C 355,110 380,106 395,115 
-                     L 412,185 
-                     C 395,205 385,220 365,215 
-                     C 350,210 335,180 342,160 Z" 
-                  fill="url(#anzoateguiGrad)" stroke="#60a5fa" stroke-width="1.8"/>
-          </g>
-
-          <circle class="hq-pulse" cx="372" cy="182" r="30" fill="url(#nodeGlow)" />
-          <circle class="hq-pulse delay-1" cx="372" cy="182" r="30" fill="url(#nodeGlow)" />
-          
-          <circle class="hq-center-dot" cx="372" cy="182" r="5.5" fill="#10b981" />
-
-          <g class="hq-label">
-            <rect x="395" y="158" width="160" height="32" rx="6" fill="#020617" stroke="#3b82f6" stroke-width="1.5"/>
-            <text x="407" y="178" fill="#ffffff" font-family="'Inter', sans-serif" font-size="10.5" font-weight="700" letter-spacing="0.04em">SAN JOSÉ DE GUANIPA</text>
-          </g>
-        </svg>
-        <span class="map-caption">📍 Sede Principal y operaciones con alcance a nivel nacional</span>
-      </div>
-    </div>
+  </div>
+  <span class="map-caption">📍 Sede Principal y operaciones con alcance a nivel nacional</span>
+</div>
   
   <div class="footer-copy">
     &copy; 2026 PROLED C.A. Todos los derechos reservados. RIF: J-30931964-7
