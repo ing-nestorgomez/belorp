@@ -168,7 +168,7 @@ h1, h2, h3, h4 {
   transform: translateY(0) scale(1); 
 }
 
-.dropdown-menu ul { 
+.dropdown-menu.active ul { 
   list-style: none; 
   padding: 0; 
   margin: 0; 
@@ -536,70 +536,11 @@ h1, h2, h3, h4 {
 .client-logo-card h4 { font-size: 0.95rem; color: #2d3748; font-weight: 600; margin: 0; }
 
 /* ==========================================================================
-   10. FOOTER OSCURO
+   10. SECCIÓN: NUESTRA FLOTA Y EQUIPOS
    ========================================================================== */
-.site-footer {
-  background-color: #0d0d0d;
-  color: #e0e0e0;
-  padding: 40px 0 16px;
-  margin-top: 40px;
-}
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px 32px;
-  border-bottom: 1px solid #2a2a2a;
-}
-.footer-grid h4 { color: #ffffff; font-size: 1rem; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; }
-.footer-grid ul { list-style: none; padding: 0; }
-.footer-grid ul li { margin-bottom: 8px; font-size: 0.9rem; color: #a0a0a0; }
-.footer-copy { text-align: center; padding-top: 20px; font-size: 0.85rem; color: #666; letter-spacing: 0.5px; }
-
-/* ==========================================================================
-   11. MEDIA QUERIES (OPTIMIZACIÓN RESPONSIVE)
-   ========================================================================== */
-@media (max-width: 900px) {
-  .historical-grid { grid-template-columns: 1fr; }
-  .hero-title { font-size: 2.2rem; }
-}
-
-@media (max-width: 768px) {
-  body { padding-top: 100px; }
-  .container { padding: 0 20px; width: 100%; justify-content: space-between; }
-  .dropdown-menu { right: 20px; min-width: 180px; top: 70px; }
-  .logo-icon img { height: 35px; }
-  
-  .main-content { padding: 20px; }
-  .hero-section { padding: 80px 20px 50px; }
-  .hero-subtitle { font-size: 1rem; }
-  .historical-section { padding: 24px 20px; margin-bottom: 40px; }
-  .services-grid { grid-template-columns: 1fr; }
-  
-  /* Ajustes de Tabla en Móvil */
-  .experience-section { padding: 24px 16px; margin-bottom: 40px; }
-  .table-controls { flex-direction: column; align-items: stretch; gap: 14px; }
-  .search-box-container { max-width: 100%; }
-  .experience-table th, .experience-table td { padding: 14px 12px; font-size: 0.88rem; }
-
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; padding: 0 20px 24px; }
-
-  /* Ajuste de franjas en móvil */
-  .stripes-container { height: 30px; }
-  .stripe-red { height: 210%; }
-  .stripe-blue { width: 50%; height: 120%; }
-  .stripe-yellow { width: 40%; height: 50%; }
-}
-
- /* Cards grids de equipos */
-/* ==========================================
-   ESTILOS: NUESTRA FLOTA Y EQUIPOS
-========================================== */
 .fleet-section {
     padding: 80px 20px;
-    background-color: #f8fafc; /* Un fondo gris sutil para contrastar con secciones blancas */
+    background-color: #f8fafc;
 }
 
 .fleet-container {
@@ -639,14 +580,12 @@ h1, h2, h3, h4 {
     line-height: 1.6;
 }
 
-/* Grid Layout */
 .fleet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
 }
 
-/* Estilos de las Tarjetas */
 .fleet-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
@@ -665,12 +604,11 @@ h1, h2, h3, h4 {
     border-color: #cbd5e1;
 }
 
-/* Indicador de cantidad */
 .card-qty {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: #1e293b; /* Color oscuro corporativo */
+    background-color: #1e293b;
     color: #ffffff;
     font-size: 0.8rem;
     font-weight: 700;
@@ -678,7 +616,6 @@ h1, h2, h3, h4 {
     border-radius: 12px;
 }
 
-/* Iconos de los equipos */
 .card-icon {
     width: 50px;
     height: 50px;
@@ -696,7 +633,6 @@ h1, h2, h3, h4 {
     height: 26px;
 }
 
-/* Contenido de texto */
 .card-content {
     width: 100%;
 }
@@ -715,8 +651,7 @@ h1, h2, h3, h4 {
     margin-bottom: 18px;
 }
 
-/* Badge de estado operativo */
-.status-badge {
+.fleet-card .status-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -726,39 +661,26 @@ h1, h2, h3, h4 {
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 8px;
+    border: none;
 }
 
-.status-badge .dot {
+.fleet-card .status-badge .dot {
     width: 6px;
     height: 6px;
     background-color: #22c55e;
     border-radius: 50%;
 }
 
-/* Responsive / Adaptabilidad */
-@media (max-width: 768px) {
-    .fleet-section {
-        padding: 50px 15px;
-    }
-    .fleet-header h2 {
-        font-size: 1.75rem;
-    }
-    .fleet-grid {
-        grid-template-columns: 1fr; /* Una sola columna en teléfonos móviles */
-        gap: 15px;
-    }
-}
-
-/* modificaciones al footer */
-/* ==========================================
-   INTERACTIVIDAD Y DISEÑO: SITE FOOTER
-========================================== */
+/* ==========================================================================
+   11. INTERACTIVIDAD Y DISEÑO: SITE FOOTER (PREMIUM RE-ESTILIZADO)
+   ========================================================================== */
 .site-footer {
-    background-color: #0f172a; /* Fondo ultra oscuro profundo elegante */
+    background-color: #020617; /* Fondo negro azulado de alta fidelidad */
     color: #94a3b8;
-    padding: 70px 20px 30px 20px;
+    padding: 80px 20px 40px 20px;
     font-family: 'Inter', sans-serif;
-    border-top: 3px solid #1e293b;
+    border-top: 2px solid #1e293b;
+    margin-top: 40px;
 }
 
 .footer-grid {
@@ -769,17 +691,15 @@ h1, h2, h3, h4 {
     gap: 40px;
 }
 
-/* Títulos de las columnas */
 .footer-col h4 {
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     margin-bottom: 25px;
-    position: relative;
+    text-transform: uppercase;
 }
 
-/* Listas y enlaces limpios con transiciones */
 .footer-links {
     list-style: none;
     padding: 0;
@@ -791,111 +711,167 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     font-size: 0.95rem;
-    line-height: 1.5;
+    color: #94a3b8;
 }
 
 .footer-icon {
-    margin-right: 10px;
+    margin-right: 12px;
     font-size: 1.1rem;
 }
 
 .footer-links a {
     color: #94a3b8;
     text-decoration: none;
-    transition: color 0.25s ease, transform 0.25s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
     display: inline-block;
 }
 
-/* Efecto interactivo al pasar el mouse por encima */
 .footer-links a:hover {
-    color: #38bdf8; /* Azul tecnológico brillante */
-    transform: translateX(4px);
+    color: #60a5fa;
+    transform: translateX(5px);
 }
 
-/* ==========================================
-   MÓDULO DEL MAPA TECNOLÓGICO
-========================================== */
+/* Módulo del Mapa Real */
 .footer-map-col {
     display: flex;
     flex-direction: column;
 }
 
 .map-wrapper {
-    background: rgba(30, 41, 59, 0.3);
+    background: #0f172a;
     border: 1px solid #1e293b;
-    border-radius: 12px;
-    padding: 15px;
+    border-radius: 16px;
+    padding: 20px;
     position: relative;
+    box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
     overflow: hidden;
+}
+
+.map-wrapper:hover {
+    border-color: #2563eb;
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.15), inset 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .venezuela-map-svg {
     width: 100%;
     height: auto;
-    max-height: 180px;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
 }
 
-/* Animación de Pulso de Radar (Efecto Ping) */
-.map-pulse {
-    transform-origin: 290px 180px;
-    animation: mapRadarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+.venezuela-mesh path {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+    cursor: pointer;
 }
 
-.map-node {
-    box-shadow: 0 0 10px #22c55e;
+.venezuela-mesh path:hover {
+    fill: #1e293b;
+    stroke: #475569;
 }
 
-/* Efecto hover sobre la etiqueta del mapa */
-.map-label {
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
+/* Animación Respiración e Iluminación de Anzoátegui */
+.state-anzoategui {
+    cursor: pointer;
+    animation: anzoateguiGlow 3s ease-in-out infinite alternate;
 }
 
-.map-wrapper:hover .map-label {
+/* Animación del Radar en El Tigre (Doble Onda) */
+.hq-pulse {
+    transform-origin: 355px 175px;
+    animation: radarPing 2.5s cubic-bezier(0.1, 0, 0, 1) infinite;
+}
+
+.hq-pulse.delay-1 {
+    animation-delay: 1.25s;
+}
+
+.hq-center-dot {
+    filter: drop-shadow(0 0 8px #10b981);
+}
+
+.hq-label {
+    opacity: 0.4;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translate(-2px, -2px);
+}
+
+.map-wrapper:hover .hq-label {
     opacity: 1;
+    transform: translate(0, 0);
 }
 
 .map-caption {
     display: block;
     font-size: 0.75rem;
-    color: #64748b;
+    color: #475569;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
+    line-height: 1.4;
 }
 
-/* Copia de pie de página */
 .footer-copy {
     max-width: 1200px;
-    margin: 50px auto 0 auto;
+    margin: 60px auto 0 auto;
     padding-top: 25px;
     border-top: 1px solid #1e293b;
     text-align: center;
     font-size: 0.85rem;
-    color: #64748b;
+    color: #475569;
 }
 
-/* Keyframes de la animación de pulso */
-@keyframes mapRadarPing {
-    0% {
-        transform: scale(0.4);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1.6);
-        opacity: 0;
-    }
+/* ==========================================================================
+   12. MEDIA QUERIES (OPTIMIZACIÓN RESPONSIVE GLOBAL)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .historical-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 2.2rem; }
 }
 
-/* Adaptabilidad Móvil */
 @media (max-width: 768px) {
-    .site-footer {
-        padding: 50px 20px 25px 20px;
-    }
-    .footer-grid {
-        grid-template-columns: 1fr; /* Todo en una columna lineal en teléfonos */
-        gap: 30px;
-    }
-    .footer-col h4 {
-        margin-bottom: 15px;
-    }
+  body { padding-top: 100px; }
+  .container { padding: 0 20px; width: 100%; justify-content: space-between; }
+  .dropdown-menu { right: 20px; min-width: 180px; top: 70px; }
+  .logo-icon img { height: 35px; }
+  
+  .main-content { padding: 20px; }
+  .hero-section { padding: 80px 20px 50px; }
+  .hero-subtitle { font-size: 1rem; }
+  .historical-section { padding: 24px 20px; margin-bottom: 40px; }
+  .services-grid { grid-template-columns: 1fr; }
+  
+  /* Ajustes de Tabla en Móvil */
+  .experience-section { padding: 24px 16px; margin-bottom: 40px; }
+  .table-controls { flex-direction: column; align-items: stretch; gap: 14px; }
+  .search-box-container { max-width: 100%; }
+  .experience-table th, .experience-table td { padding: 14px 12px; font-size: 0.88rem; }
+
+  /* Flota y Equipos Adaptativo */
+  .fleet-section { padding: 50px 15px; }
+  .fleet-header h2 { font-size: 1.75rem; }
+  .fleet-grid { grid-template-columns: 1fr; gap: 15px; }
+
+  /* Footer en Móvil */
+  .site-footer { padding: 60px 20px 30px 20px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+  .footer-col h4 { margin-bottom: 15px; }
+  .hq-label { opacity: 1; }
+
+  /* Ajuste de franjas en móvil */
+  .stripes-container { height: 30px; }
+  .stripe-red { height: 210%; }
+  .stripe-blue { width: 50%; height: 120%; }
+  .stripe-yellow { width: 40%; height: 50%; }
+}
+
+/* ==========================================================================
+   13. KEYFRAMES ANIMACIONES
+   ========================================================================== */
+@keyframes radarPing {
+    0% { transform: scale(0.2); opacity: 0.9; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes anzoateguiGlow {
+    0% { filter: drop-shadow(0 0 2px rgba(96, 165, 250, 0.4)); }
+    100% { filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.8)); }
 }
