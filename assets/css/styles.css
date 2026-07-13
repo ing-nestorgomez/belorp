@@ -748,3 +748,154 @@ h1, h2, h3, h4 {
         gap: 15px;
     }
 }
+
+/* modificaciones al footer */
+/* ==========================================
+   INTERACTIVIDAD Y DISEÑO: SITE FOOTER
+========================================== */
+.site-footer {
+    background-color: #0f172a; /* Fondo ultra oscuro profundo elegante */
+    color: #94a3b8;
+    padding: 70px 20px 30px 20px;
+    font-family: 'Inter', sans-serif;
+    border-top: 3px solid #1e293b;
+}
+
+.footer-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+}
+
+/* Títulos de las columnas */
+.footer-col h4 {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+/* Listas y enlaces limpios con transiciones */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer-icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+    display: inline-block;
+}
+
+/* Efecto interactivo al pasar el mouse por encima */
+.footer-links a:hover {
+    color: #38bdf8; /* Azul tecnológico brillante */
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   MÓDULO DEL MAPA TECNOLÓGICO
+========================================== */
+.footer-map-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-wrapper {
+    background: rgba(30, 41, 59, 0.3);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.venezuela-map-svg {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+}
+
+/* Animación de Pulso de Radar (Efecto Ping) */
+.map-pulse {
+    transform-origin: 290px 180px;
+    animation: mapRadarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.map-node {
+    box-shadow: 0 0 10px #22c55e;
+}
+
+/* Efecto hover sobre la etiqueta del mapa */
+.map-label {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.map-wrapper:hover .map-label {
+    opacity: 1;
+}
+
+.map-caption {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Copia de pie de página */
+.footer-copy {
+    max-width: 1200px;
+    margin: 50px auto 0 auto;
+    padding-top: 25px;
+    border-top: 1px solid #1e293b;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Keyframes de la animación de pulso */
+@keyframes mapRadarPing {
+    0% {
+        transform: scale(0.4);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Adaptabilidad Móvil */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 50px 20px 25px 20px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr; /* Todo en una columna lineal en teléfonos */
+        gap: 30px;
+    }
+    .footer-col h4 {
+        margin-bottom: 15px;
+    }
+}
