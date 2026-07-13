@@ -967,7 +967,10 @@ h1, h2, h3, h4 {
 }
 
 /* --- Posición con Hover (Cuando el mouse entra al contenedor) --- */
-
+.hq-pulse:hover {
+  transform-origin: 300px 115px; /* Centro del pulso en San José de Guanipa */
+  animation: radarGlow 2s infinite ease-out;
+}
 /* El punto verde y su halo se mueven para compensar el Zoom del mapa de Anzoátegui */
 .map-interactive-container:hover .hq-center-dot {
   /* Ajusta estos valores de pixeles (X, Y) si es necesario para encajarlo perfectamente en tu SVG */
