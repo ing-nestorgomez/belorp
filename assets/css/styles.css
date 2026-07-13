@@ -883,7 +883,7 @@ h1, h2, h3, h4 {
   position: relative;
   width: 100%;
   max-width: 600px;
-  height: 230px; /* Ajusta según se adapte a tu layout */
+  height: 200px; /* Ajusta según se adapte a tu layout */
   overflow: hidden;
   border-radius: 8px;
   background-color: #0f172a; /* Fondo oscuro del recuadro */
