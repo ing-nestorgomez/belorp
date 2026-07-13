@@ -939,7 +939,7 @@ h1, h2, h3, h4 {
 
 /* Animación del radar (Halo de luz flotante) */
 .hq-pulse {
-  transform-origin: 350px 175px; /* Centro del pulso en San José de Guanipa */
+  transform-origin: 345px 155px; /* Centro del pulso en San José de Guanipa */
   animation: radarGlow 2s infinite ease-out;
 }
 .hq-pulse.delay-1 {
@@ -963,7 +963,7 @@ h1, h2, h3, h4 {
 .hq-label {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   /* Definimos el punto de origen de escala en la coordenada original */
-  transform-origin: 372px 182px; 
+  transform-origin: 345px 145px; 
 }
 
 /* --- Posición con Hover (Cuando el mouse entra al contenedor) --- */
