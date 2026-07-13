@@ -148,20 +148,187 @@ title: Inicio
 </div>
 
 <script>
-  // Datos corregidos y actualizados basándose fielmente en las capturas de la tabla real
+  // Datos extraídos fielmente del texto del PDF original (Páginas 1/3, 2/3 y 3/3)
   const experienceData = [
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "ADQUISICION DE PANELES ELECTRICOS DE RESISTENCIA Y CONTROL PARA LAS ESTACIONES DE FLUJO E INTERCONEXIONES DE POZO DEL PROYECTO INFRAESTRUCTURA DE SUPERFICIE DEL BLOQUE DE PRODUCCION DE LA EMPRESA MIXTA PETROPIAR", anio: "2018", estatus: "EJECUTADO" },
-    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "CONTRATACIÓN ABIERTA PARA OBRAS CIVILES, CONSTRUCCIÓN MANTENIMIENTO Y MODIFICACIÓN DE INFRAESTRUCTURAS INDUSTRIALES EN LAS ÁREAS DE PRODUCCIÓN DE LA DIRECCIÓN ADJUNTA DE PRODUCCIÓN PYP SUR DE LA DIVISION AYACUCHO", anio: "2018", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "ADQUISICION DE PANELES ELECTRICOS DE POTENCIA Y CONTROL (DISTRIBUCIÓN, TRANSFERENCIA E ILUMINACIÓN) PARA LAS ESTACIONES DE CORTE Y SECCIONAMIENTO (ECS) DE LAS MAC COLLS EN EL BLOQUE DE PRODUCCION DE LA EMPRESA MIXTA PETROPIAR", anio: "2019", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE SUMINISTRO ELÉCTRICO REQUERIDOS PARA LA OPERACIÓN Y EL MANTENIMIENTO DE LAS SUBESTACIONES ELÉCTRICAS DEL CENTRO OPERACIONAL PETROPIAR (COP) DE LA EMPRESA MIXTA PETROPIAR", anio: "2020", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE INTERRUPTORES DE BAJA TENSIÓN REQUERIDOS PARA LA OPERACIÓN Y EL MANTENIMIENTO DEL CENTRO OPERACIONAL PETROPIAR (COP) DE LA EMPRESA MIXTA PETROPIAR", anio: "2021", estatus: "EJECUTADO" },
-    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "CONTRATACION ABIERTA PARA EL MANTENIMIENTO MECANICO Y ELECTRICO DE LOS EQUIPOS DINAMICOS Y ESTATICOS DE LOS CENTROS OPERACIONALES DE LA DIVISION AYACUCHO", anio: "2021", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE LUMINARIAS CON TECNOLOGIA LED PARA AREAS INDUSTRIALES DEL PROCESO DE MEJORAMIENTO DEL COMPLEJO INDUSTRIAL JOSE ANTONIO ANZOATEGUI DE LA EMPRESA MIXTA PETROPIAR", anio: "2022", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE TRANSFORMADORES ELÉCTRICOS DEL TIPO SECOS TENSION 480V/208V PARA EL COMPLEJO INDUSTRIAL JOSE ANTONIO ANZOATEGUI (CIJAA) DE LA EMPRESA MIXTA PETROPIAR", anio: "2023", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROINDEPENDENCIA S.A.", proyecto: "PROCURA DE CONECTORES Y TERMINALES PARA CABLES DE MEDIA TENSIÓN ASOCIADOS AL PROYECTO INFRAESTRUCTURA DE SUPERFICIE DEL BLOQUE DE PRODUCCIÓN DE LA EMPRESA MIXTA PETROINDEPENDENCIA", anio: "2023", estatus: "EJECUTADO" },
-    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE CONDUCTORES ELÉCTRICOS DE MEDIA Y BAJA TENSIÓN REQUERIDOS PARA EL PROYECTO DE ALIMENTACIÓN ELÉCTRICA DE LOS NUEVOS POZOS EN EL BLOQUE DE PRODUCCIÓN DE LA EMPRESA MIXTA PETROPIAR", anio: "2024", estatus: "EJECUTADO" },
-    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "SERVICIOS DE REHABILITACIÓN Y MANTENIMIENTO DE SISTEMAS DE ILUMINACIÓN Y FUERZA EN EDIFICACIONES ADMINISTRATIVAS E INDUSTRIALES DE LA DIVISIÓN AYACUCHO", anio: "2024", estatus: "EJECUTADO" },
-    { cliente: "GOBIERNO BOLIVARIANO", proyecto: "PROCURA DE MATERIALES E INSUMOS ELÉCTRICOS PARA EL PLAN DE RECUPERACIÓN DE ALUMBRADO PÚBLICO EN LAS PRINCIPALES AVENIDAS DEL MUNICIPIO SIMON RODRIGUEZ, EDO. ANZOATEGUI", anio: "2024", estatus: "EJECUTADO" }
+    // --- PÁGINA 1/3 ---
+    { 
+      cliente: "CHEVRON GLOBAL TECHNOLOGY", 
+      proyecto: "SERVICIO DE SOLDADURA PARA MANTENIMIENTO OPERACIONAL DE LA EMPRESA MIXTA PETROINDEPENDENCIA S.A", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "EMPRESA MIXTA PETROINDEPENDENCIA", 
+      proyecto: "SERVICIO DE SOLDADURA PARA MANTENIMIENTO OPERACIONAL DE LA EMPRESA MIXTA PETROINDEPENDENCIA S.A", 
+      anio: "2022", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "EMPRESA MIXTA PETROINDEPENDENCIA", 
+      proyecto: "SERVICIO DE ACARREO DE FLUIDOS Y DESECHOS PETROLIZADOS PARA PETROINDEPENDENCIA, S.A", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "COVINEA", 
+      proyecto: "Rehabilitación de 2 Alcantarillas ubicadas en la Troncal 16 carretera Nacional Anaco - Cantaura, Estado Anzoategui", 
+      anio: "2022", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "EMPRESA MIXTA PETROINDEPENDENCIA", 
+      proyecto: "Suministro de Correas Industriales para la Empresa Mixta PETROINDEPENDENCIA S.A.", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDIA DEL MUNICIPIO SIMON RODRIGUEZ", 
+      proyecto: "Suministro e Instalación de Ojos de Gato con Tecnología LED en la Redoma de la Cruz de Los Choferes, El Tigre, Edo. Anzoategui", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDIA DEL MUNICIPIO SIMON RODRIGUEZ", 
+      proyecto: "Iluminación de Navidad con Tecnología LED en el Edificio de la Alcaldía del Municipio Simon Rodríguez, Estado Anzoategui", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDIA DEL MUNICIPIO SIMON RODRIGUEZ", 
+      proyecto: "Iluminación de Navidad con Tecnología LED en la Plaza Revenga del Municipio Simon Rodríguez, Estado Anzoategui", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDIA DEL MUNICIPIO SIMON RODRIGUEZ", 
+      proyecto: "Iluminación de Navidad con Tecnología LED en la Redoma de la Cruz de los Choferes del Municipio Simon Rodríguez, Estado Anzoategui", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "EMPRESA MIXTA PETROPIAR S.A.", 
+      proyecto: "Restauración del sistema de Iluminación con nueva Tecnología en áreas operacionales y perimetrales de PETROPIAR S.A.", 
+      anio: "2021", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "PDVSA PETROLEO S.A.", 
+      proyecto: "Reparación Mecánica Y Saneamiento Ambiental De Área Afectada Por Derrame De Crudo Diluido (Dco) En El Oleoducto 36 Pulgadas Progresiva 142+500, San Diego De Cabrutica – Jose, En El Sector Jobillotes, Edo. Anzoategui”", 
+      anio: "2021", 
+      estatus: "EJECUTADO" 
+    },
+
+    // --- PÁGINA 2/3 ---
+    { 
+      cliente: "PDVSA PETROLEO S.A. / DIVISIÓN FAJA", 
+      proyecto: "Servicio de Desmalezamiento y Apertura de Corta Fuego en Patios de Tanque y Estaciones de Válvulas de Coordinación Operacional Faja", 
+      anio: "2022", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDÍA MUNICIPIO FRANCISCO DE MIRANDA", 
+      proyecto: "Suministro de 98 lámparas de calle de tecnología LED, para la Alcaldía del Municipio Francisco de Miranda, Estado Anzoategui.", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDÍA MUNICIPIO FRANCISCO DE MIRANDA", 
+      proyecto: "Suministro de 200 lámparas de calle de tecnología LED para la Alcaldía del Municipio Francisco de Miranda, Estado Anzoategui.", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "PDVSA PETROLEO S.A.", 
+      proyecto: "Reparación De Oleoducto De 30 Pulgadas De La Troncal 51 Desde La Localización Geográfica Utm (348950/1029383) Sector El Cardonal Diagonal A Secogoca Cantaura – Anaco Del Estado Anzoategui", 
+      anio: "2022", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "PDVSA PETROLEO S.A.", 
+      proyecto: "Saneamiento Ambiental de área afectada en Patio Tanque Oficina, perteneciente a Coordinación Operacional Faja", 
+      anio: "2022", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDÍA MUNICIPIO FRANCISCO DE MIRANDA", 
+      proyecto: "Suministro e instalación de de lamparas para postes con Tecnología LED para ambientar Plazas y calles principales de la Ciudad de Pariaguan, Estado Anzoategui", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDÍA MUNICIPIO FRANCISCO DE MIRANDA", 
+      proyecto: "Restauración de la Plaza Bolívar del Municipio Francisco de Miranda - Anzoátegui", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "PDVSA PETRÓLEO S.A. DIVISIÓN AYACUCHO", 
+      proyecto: "Reparación mecánica y saneamiento ambiental de área afectada por derrame de crudo merey 16, en oleoducto de 30 pulgadas, prog.15+500 troncal 51, ubicado en el sector valles del Neverí, Barcelona edo. Anzoátegui", 
+      anio: "2021", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "PDVSA PETRÓLEO S.A. DIVISIÓN AYACUCHO", 
+      proyecto: "Reparación mecánica y saneamiento de área afectada por derrame de crudo merey 16, en oleoducto de 30 pulgadas de la troncal-51, prog. 15+800, ubicado en el sector picas del Neverí, Barcelona edo. Anzoátegui” frente 1 (reparación mecánica)", 
+      anio: "2021", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "EMPRESA MIXTA PETROLERA INDOVENEZOLANA S.A.", 
+      proyecto: "Adquisición de Escritorios y Sillas para los Trailer de Petrolera Indovenezolana S.A", 
+      anio: "2022", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "CENTRO EMPRESARIAL OLEUS", 
+      proyecto: "Construcción de Pantalla LED en la Torre del Centro Empresarial Oleus", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+
+    // --- PÁGINA 3/3 ---
+    { 
+      cliente: "EMPRESA MIXTA PETROLERA INDOVENEZOLANA S.A.", 
+      proyecto: "Mantenimiento y Reparación de los Equipos de Aire Acondicionado y Circuitos Eléctricos de la Empresa Mixta Petrolera Indovenezolana Ubicadas en el Área Operacional y Administrativo", 
+      anio: "2017", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDÍA DEL MUNICIPIO URBANEJA", 
+      proyecto: "Servicio de Desmalezamiento en el Boulevard Eneas Perdomo", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "PDVSA PETROLEO S.A. DIVISIÓN JUNÍN", 
+      proyecto: "Servicio de mantenimiento y reparación de alumbrado en áreas operacionales del Dtto. Junín sur", 
+      anio: "2021", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "BANCO DE DESARROLLO AGROPECUARIO PANAMA", 
+      proyecto: "Suministro e Instalación de luminarias en la parte externa del Edificio del Banco de Desarrollo Agropecuario", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "DISCOTECA 0281 LECHERÍA", 
+      proyecto: "Suministro e Instalación de Luminarias Interiores y Exteriores con Tecnología LED de la Discoteca 0281, Lechería Estado Anzoategui.", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "RESTAURANT MVP LECHERÍA", 
+      proyecto: "Diseño, Suministro e instalación de lámparas interiores y exteriores con Tecnología LED, en el Restaurant MVP, de la Ciudad de Lechería, Estado Anzotegui.", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    },
+    { 
+      cliente: "ALCALDIA DEL TIGRE", 
+      proyecto: "Iluminación con Tecnologia LED de Pasarelas, Redoma De Aguanca y Plaza Bolívar De la Ciudad del Tigre, Estado Anzoategui.", 
+      anio: "2023", 
+      estatus: "EJECUTADO" 
+    }
   ];
 
   let filteredData = [...experienceData];
