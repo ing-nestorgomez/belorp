@@ -939,7 +939,7 @@ h1, h2, h3, h4 {
 
 /* Animación del radar (Halo de luz flotante) */
 .hq-pulse {
-  transform-origin: 372px 182px; /* Centro del pulso en San José de Guanipa */
+  transform-origin: 350px 175px; /* Centro del pulso en San José de Guanipa */
   animation: radarGlow 2s infinite ease-out;
 }
 .hq-pulse.delay-1 {
