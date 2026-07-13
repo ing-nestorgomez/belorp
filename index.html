@@ -79,6 +79,46 @@ title: Inicio
     </div>
   </section>
 
+  <section class="experience-section" id="experiencia">
+    <div class="section-header">
+      <span class="section-tagline">Respaldados por la Práctica</span>
+      <h2 class="section-title">RESUMEN DE EXPERIENCIA</h2>
+    </div>
+
+    <div class="table-controls">
+      <div class="search-box-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="experienceSearch" placeholder="Buscar por cliente, proyecto, año...">
+      </div>
+      <div class="rows-per-page">
+        <label for="rowsSelect">Mostrar:</label>
+        <select id="rowsSelect">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive-container">
+      <table class="experience-table" id="experienceTable">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Cliente / Institución</th>
+            <th>Descripción del Proyecto / Obra</th>
+            <th>Año</th>
+            <th>Estatus</th>
+          </tr>
+        </thead>
+        <tbody id="experienceTableBody">
+          </tbody>
+      </table>
+    </div>
+
+    <div class="table-pagination" id="tablePagination">
+      </div>
+  </section>
   <section class="clients-section" id="clientes">
     <div class="section-header">
       <span class="section-tagline">Alianzas Estratégicas</span>
@@ -105,3 +145,119 @@ title: Inicio
   </section>
 
 </div>
+
+<script>
+  // Datos extraídos fielmente de la presentación PDF
+  const experienceData = [
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "ADQUISICIÓN DE PANELES ELECTRICOS DE RESISTENCIA Y CONTROL PARA LAS ESTACIONES DE FLUJO E INTERCONEXIONES DE POZO DEL PROYECTO INFRAESTRUCTURA DE SUPERFICIE DEL BLOQUE DE PRODUCCION DE LA EMPRESA MIXTA PETROPIAR.", anio: "2018", estatus: "EJECUTADO" },
+    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "CONTRATACIÓN ABIERTA PARA OBRAS CIVILES, CONSTRUCCIÓN, MANTENIMIENTO Y MODIFICACIÓN DE INFRAESTRUCTURAS INDUSTRIALES EN LAS ÁREAS DE PRODUCCIÓN DE LA DIRECCIÓN ADJUNTA DE PRODUCCIÓN PYP SUR DE LA DIVISION AYACUCHO.", anio: "2018", estatus: "EJECUTADO" },
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "ADQUISICIÓN DE PANELES ELÉCTRICOS DE POTENCIA Y CONTROL (DISTRIBUCIÓN, TRANSFERENCIA E ILUMINACIÓN) PARA LAS ESTACIONES DE CORTE Y SECCIONAMIENTO (ECS) DE LAS MAC COLLS EN EL BLOQUE DE PRODUCCIÓN DE LA EMPRESA MIXTA PETROPIAR.", anio: "2019", estatus: "EJECUTADO" },
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE SUMINISTRO ELÉCTRICO REQUERIDOS PARA LA OPERACIÓN Y EL MANTENIMIENTO DE LAS SUBESTACIONES ELÉCTRICAS DEL CENTRO OPERACIONAL PETROPIAR (COP) DE LA EMPRESA MIXTA PETROPIAR.", anio: "2020", estatus: "EJECUTADO" },
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE INTERRUPTORES DE BAJA TENSIÓN REQUERIDOS PARA LA OPERACIÓN Y EL MANTENIMIENTO DEL CENTRO OPERACIONAL PETROPIAR (COP) DE LA EMPRESA MIXTA PETROPIAR.", anio: "2021", estatus: "EJECUTADO" },
+    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "CONTRATACIÓN ABIERTA PARA EL MANTENIMIENTO MECÁNICO Y ELÉCTRICO DE LOS EQUIPOS DINÁMICOS Y ESTÁTICOS DE LOS CENTROS OPERACIONALES DE LA DIVISION AYACUCHO.", anio: "2021", estatus: "EJECUTADO" },
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE LUMINARIAS CON TECNOLOGÍA LED PARA ÁREAS INDUSTRIALES DEL PROCESO DE MEJORAMIENTO DEL COMPLEJO INDUSTRIAL JOSÉ ANTONIO ANZOÁTEGUI DE LA EMPRESA MIXTA PETROPIAR.", anio: "2022", estatus: "EJECUTADO" },
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "PROCURA DE TRANSFORMADORES ELÉCTRICOS DEL TIPO SECOS TENSION 480V/208V PARA EL COMPLEJO INDUSTRIAL JOSÉ ANTONIO ANZOÁTEGUI (CIJAA) DE LA EMPRESA MIXTA PETROPIAR.", anio: "2023", estatus: "EJECUTADO" },
+    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "CONTRATACIÓN DE PROCURA DE CONDUCTORES ELÉCTRICOS DE ALTA Y MEDIA TENSIÓN PARA EL PROYECTO DE REACTIVACIÓN DE POZOS PETROLEROS EN LA DIVISION AYACUCHO.", anio: "2023", estatus: "EJECUTADO" },
+    { cliente: "PDVSA PETROPIAR S.A.", proyecto: "CONTRATACIÓN DE PROCURA DE EQUIPOS DE PROTECCIÓN ELÉCTRICA (RELES, INTERRUPTORES, FUSIBLES) PARA SUBESTACIONES ELÉCTRICAS EN EL COMPLEJO JOSÉ ANTONIO ANZOÁTEGUI (CIJAA).", anio: "2024", estatus: "EJECUTADO" },
+    { cliente: "PDVSA EXPLORACIÓN Y PRODUCCIÓN", proyecto: "SERVICIOS DE CONSTRUCCIÓN E INTERCONEXIÓN DE SISTEMAS ELÉCTRICOS EN BAJA Y MEDIA TENSIÓN PARA LA PUESTA EN MARCHA DE MAC COLLS EN LA DIVISION AYACUCHO.", anio: "2024", estatus: "EJECUTADO" },
+    { cliente: "GOBIERNO BOLIVARIANO", proyecto: "PROCURA DE MATERIALES E INSUMOS ELÉCTRICOS E ILUMINACIÓN VIAL LED PARA EL PLAN DE RECUPERACIÓN DE ALUMBRADO PÚBLICO EN LAS PRINCIPALES AVENIDAS DEL MUNICIPIO SIMÓN RODRÍGUEZ, EDO. ANZOÁTEGUI.", anio: "2024", estatus: "EJECUTADO" }
+  ];
+
+  let filteredData = [...experienceData];
+  let currentPage = 1;
+  let rowsPerPage = 10;
+
+  const tableBody = document.getElementById('experienceTableBody');
+  const searchInput = document.getElementById('experienceSearch');
+  const rowsSelect = document.getElementById('rowsSelect');
+  const paginationContainer = document.getElementById('tablePagination');
+
+  function displayTable() {
+    tableBody.innerHTML = "";
+    
+    if (filteredData.length === 0) {
+      tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 30px; color: #666;">No se encontraron resultados</td></tr>`;
+      paginationContainer.innerHTML = "";
+      return;
+    }
+
+    let start = (currentPage - 1) * rowsPerPage;
+    let end = start + rowsPerPage;
+    let paginatedItems = filteredData.slice(start, end);
+
+    paginatedItems.forEach((item, index) => {
+      const row = document.createElement('tr');
+      const statusClass = item.estatus.toLowerCase().includes('ejecutado') || item.estatus.toLowerCase().includes('completado') ? 'status-completed' : 'status-pending';
+      
+      row.innerHTML = `
+        <td><strong>${start + index + 1}</strong></td>
+        <td>${item.cliente}</td>
+        <td>${item.proyecto}</td>
+        <td><span class="year-badge">${item.anio}</span></td>
+        <td><span class="status-badge ${statusClass}">${item.estatus}</span></td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    setupPagination();
+  }
+
+  function setupPagination() {
+    paginationContainer.innerHTML = "";
+    let pageCount = Math.ceil(filteredData.length / rowsPerPage);
+    
+    if (pageCount <= 1) return;
+
+    const prevBtn = document.createElement('button');
+    prevBtn.innerHTML = "&laquo;";
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.addEventListener('click', () => {
+      currentPage--;
+      displayTable();
+    });
+    paginationContainer.appendChild(prevBtn);
+
+    for (let i = 1; i <= pageCount; i++) {
+      const btn = document.createElement('button');
+      btn.innerText = i;
+      if (i === currentPage) btn.classList.add('active');
+      
+      btn.addEventListener('click', () => {
+        currentPage = i;
+        displayTable();
+      });
+      paginationContainer.appendChild(btn);
+    }
+
+    const nextBtn = document.createElement('button');
+    nextBtn.innerHTML = "&raquo;";
+    nextBtn.disabled = currentPage === pageCount;
+    nextBtn.addEventListener('click', () => {
+      currentPage++;
+      displayTable();
+    });
+    paginationContainer.appendChild(nextBtn);
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    filteredData = experienceData.filter(item => 
+      item.cliente.toLowerCase().includes(searchTerm) ||
+      item.proyecto.toLowerCase().includes(searchTerm) ||
+      item.anio.toString().includes(searchTerm) ||
+      item.estatus.toLowerCase().includes(searchTerm)
+    );
+    currentPage = 1;
+    displayTable();
+  });
+
+  rowsSelect.addEventListener('change', (e) => {
+    rowsPerPage = parseInt(e.target.value);
+    currentPage = 1;
+    displayTable();
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    displayTable();
+  });
+</script>
