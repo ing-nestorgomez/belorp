@@ -876,7 +876,7 @@ h1, h2, h3, h4 {
     100% { filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.8)); }
 }
 
-/* mapaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
+/* ############ MAPA ############### */
 
 /* Contenedor principal que agrupa las capas */
 .map-interactive-container {
@@ -955,4 +955,32 @@ h1, h2, h3, h4 {
     transform: scale(1.8);
     opacity: 0;
   }
+}
+
+/* --- Posición por defecto (Sin Hover) --- */
+.hq-pulse,
+.hq-center-dot,
+.hq-label {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Definimos el punto de origen de escala en la coordenada original */
+  transform-origin: 372px 182px; 
+}
+
+/* --- Posición con Hover (Cuando el mouse entra al contenedor) --- */
+
+/* El punto verde y su halo se mueven para compensar el Zoom del mapa de Anzoátegui */
+.map-interactive-container:hover .hq-center-dot {
+  /* Ajusta estos valores de pixeles (X, Y) si es necesario para encajarlo perfectamente en tu SVG */
+  transform: translate(350px, 200px) scale(1.1); 
+}
+
+.map-interactive-container:hover .hq-pulse {
+  /* El radar se mueve y mantiene la animación de ondas en el nuevo punto */
+  animation: radarGlow 2s infinite ease-out;
+  transform: translate(350px, 200px);
+}
+
+/* La etiqueta flotante se desplaza para no tapar el punto reubicado */
+.map-interactive-container:hover .hq-label {
+  transform: translate(350px, 200px);
 }
