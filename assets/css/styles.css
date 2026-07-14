@@ -878,7 +878,7 @@ h1, h2, h3, h4 {
    13. KEYFRAMES ANIMACIONES
    ========================================================================== */
 @keyframes radarPing {
-    0% { transform: scale(0.2); opacity: 0.9; }
+    0% { transform: scale(0.5); opacity: 0.9; }
     100% { transform: scale(1.8); opacity: 0; }
 }
 
