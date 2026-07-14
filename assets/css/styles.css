@@ -898,7 +898,6 @@ h1, h2, h3, h4 {
   overflow: hidden;
   border-radius: 8px;
   background-color: #0f172a; /* Fondo oscuro del recuadro */
-  filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
 }
 
 /* Regla general para las capas de imágenes */
@@ -916,6 +915,7 @@ h1, h2, h3, h4 {
 .layer-country {
   opacity: 0.9;
   transform: scale(1);
+   filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
 }
 
 /* Capa 2: Anzoátegui empieza sutil o integrado */
