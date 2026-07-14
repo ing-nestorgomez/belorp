@@ -884,7 +884,7 @@ h1, h2, h3, h4 {
 
 @keyframes anzoateguiGlow {
     0% { filter: drop-shadow(0 0 2px rgba(96, 165, 250, 0.4)); }
-    100% { filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.8)); }
+    100% { filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.8)); }
 }
 
 /* ############ MAPA ############### */
