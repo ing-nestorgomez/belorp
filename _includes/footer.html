@@ -29,40 +29,35 @@
     </div>
 
     <div class="footer-col footer-map-col">
-      <h4>COBERTURA NACIONAL</h4>
-      <div class="map-interactive-container">
-        <!-- Capa 1: Venezuela -->
-        <img src="assets/images/venezuela.svg" class="map-layer layer-country" alt="Mapa de Venezuela">
-        
-        <!-- Capa 2: Anzoátegui -->
-        <img src="assets/images/anzoategui.svg" class="map-layer layer-state" alt="Estado Anzoátegui">
-        
-        <!-- Capa 3: Interactiva de Pines -->
-        <svg class="map-overlay-tech" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#10b981" stop-opacity="1"/>
-              <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          
-          <!-- Ondas de radar -->
-          <circle class="hq-pulse" cx="345" cy="145" r="30" fill="url(#nodeGlow)" />
-          <circle class="hq-pulse delay-1" cx="345" cy="145" r="30" fill="url(#nodeGlow)" />
-          
-          <!-- Pin Central -->
-          <circle class="hq-center-dot" cx="345" cy="145" r="6" fill="#10b981" />
-          
-          <!-- Etiqueta Flotante (Reubicada a un lado del punto) -->
-          <g class="hq-label">
-            <rect x="360" y="130" width="85" height="28" rx="6" fill="#020617" stroke="#3b82f6" stroke-width="1.5"/>
-            <text x="372" y="148" fill="#ffffff" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="0.04em">ProLed</text>
-          </g>
-        </svg>
-      </div>
-      <span class="map-caption">📍 Sede Principal y operaciones con alcance a nivel nacional</span>
-    </div>
+  <h4>COBERTURA NACIONAL</h4>
+  <div class="map-interactive-container">
+    
+    <img src="assets/images/venezuela.svg" class="map-layer layer-country" alt="Mapa de Venezuela">
+    
+    <img src="assets/images/anzoategui.svg" class="map-layer layer-state" alt="Estado Anzoátegui">
+    
+    <svg class="map-overlay-tech" viewBox="0 0 600 480" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#10b981" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      
+      <circle class="hq-pulse" cx="345" cy="145" r="30" fill="url(#nodeGlow)" />
+      <circle class="hq-pulse delay-1" cx="345" cy="145" r="30" fill="url(#nodeGlow)" />
+      
+      <circle class="hq-center-dot" cx="345" cy="145" r="6" fill="#10b981" />
+      
+      <g class="hq-label">
+        <rect x="350" y="100" width="120" height="32" rx="6" fill="#020617" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="362" y="120" fill="#ffffff" font-family="'Inter', sans-serif" font-size="14" font-weight="700" letter-spacing="0.04em">ProLed</text>
+      </g>
+    </svg>
+
   </div>
+  <span class="map-caption">📍 Sede Principal y operaciones con alcance a nivel nacional</span>
+</div>
   
   <div class="footer-copy">
     &copy; 2026 PROLED C.A. Todos los derechos reservados. RIF: J-30931964-7
