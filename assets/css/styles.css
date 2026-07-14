@@ -982,7 +982,7 @@ h1, h2, h3, h4 {
 
 /* El punto verde se mueve para compensar el Zoom del mapa de Anzoátegui */
 .map-interactive-container:hover .hq-center-dot {
-  transform-origin: 10px 115px; 
+  transform-origin: -10px 115px; 
   transform: translate(20px, 115px) scale(1.1); 
 }
 
