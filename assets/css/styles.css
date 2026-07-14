@@ -675,20 +675,26 @@ h1, h2, h3, h4 {
    11. INTERACTIVIDAD Y DISEÑO: SITE FOOTER (PREMIUM RE-ESTILIZADO)
    ========================================================================== */
 .site-footer {
-    background-color: #020617; /* Fondo negro azulado de alta fidelidad */
+    background-color: #020617; /* Fondo oscuro premium */
     color: #94a3b8;
-    padding: 80px 20px 40px 20px;
+    padding: 80px 0 0 0; /* Padding superior, sin padding en los lados para el copy de ancho completo */
     font-family: 'Inter', sans-serif;
     border-top: 2px solid #1e293b;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .footer-grid {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
+    padding: 0 40px 60px 40px; /* Padding de seguridad para mantener ordenado el contenido */
 }
 
 .footer-col h4 {
@@ -753,53 +759,6 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 25px rgba(37, 99, 235, 0.15), inset 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.venezuela-map-svg {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
-}
-
-.venezuela-mesh path {
-    transition: fill 0.3s ease, stroke 0.3s ease;
-    cursor: pointer;
-}
-
-.venezuela-mesh path:hover {
-    fill: #1e293b;
-    stroke: #475569;
-}
-
-/* Animación Respiración e Iluminación de Anzoátegui */
-.state-anzoategui {
-    cursor: pointer;
-    animation: anzoateguiGlow 3s ease-in-out infinite alternate;
-}
-
-/* Animación del Radar en El Tigre (Doble Onda) */
-.hq-pulse {
-    transform-origin: 355px 175px;
-    animation: radarPing 2.5s cubic-bezier(0.1, 0, 0, 1) infinite;
-}
-
-.hq-pulse.delay-1 {
-    animation-delay: 1.25s;
-}
-
-.hq-center-dot {
-    filter: drop-shadow(0 0 8px #10b981);
-}
-
-.hq-label {
-    opacity: 0.4;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translate(-2px, -2px);
-}
-
-.map-wrapper:hover .hq-label {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
 .map-caption {
     display: block;
     font-size: 0.75rem;
@@ -809,14 +768,17 @@ h1, h2, h3, h4 {
     line-height: 1.4;
 }
 
+/* --- SOLUCIÓN DE DERECHOS RESERVADOS AL 100% DE ANCHO --- */
 .footer-copy {
-    max-width: 1200px;
-    margin: 60px auto 0 auto;
-    padding-top: 25px;
-    border-top: 1px solid #1e293b;
-    text-align: center;
+    width: 100%;             /* Forza a expandirse horizontalmente */
+    background-color: #01040f; /* Tono de fondo sutilmente más oscuro */
+    padding: 28px 20px;      /* Espaciado interno generoso */
+    border-top: 1px solid #1e293b; /* Línea divisoria elegante */
+    text-align: center;      /* Centra el texto horizontalmente */
     font-size: 0.85rem;
-    color: #475569;
+    color: #64748b;          /* Gris corporativo suave */
+    clear: both;             /* Evita conflictos de alineación de capas flotantes */
+    letter-spacing: 0.03em;
 }
 
 /* ==========================================================================
@@ -851,8 +813,8 @@ h1, h2, h3, h4 {
   .fleet-grid { grid-template-columns: 1fr; gap: 15px; }
 
   /* Footer en Móvil */
-  .site-footer { padding: 60px 20px 30px 20px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 35px; }
+  .site-footer { padding: 60px 0 0 0; }
+  .footer-grid { grid-template-columns: 1fr; gap: 35px; padding: 0 20px 40px 20px; }
   .footer-col h4 { margin-bottom: 15px; }
   .hq-label { opacity: 1; }
 
@@ -861,31 +823,25 @@ h1, h2, h3, h4 {
   .stripe-red { height: 210%; }
   .stripe-blue { width: 50%; height: 120%; }
   .stripe-yellow { width: 40%; height: 50%; }
+
+  /* Contenedor del mapa en móvil */
+  .map-interactive-container {
+    height: 280px;
+  }
 }
 
 /* ==========================================================================
-   13. KEYFRAMES ANIMACIONES
+   13. COMPONENTES DEL MAPA DE CAPAS SVG (INKSCAPE INTERACTIVO)
    ========================================================================== */
-@keyframes radarPing {
-    0% { transform: scale(0.2); opacity: 0.9; }
-    100% { transform: scale(1.8); opacity: 0; }
-}
-
-@keyframes anzoateguiGlow {
-    0% { filter: drop-shadow(0 0 2px rgba(96, 165, 250, 0.4)); }
-    100% { filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.8)); }
-}
-
-/* ############ MAPA ############### */
 
 /* Contenedor principal que agrupa las capas */
 .map-interactive-container {
   position: relative;
   width: 100%;
   max-width: 600px;
-  height: 180px; /* Ajusta según se adapte a tu layout */
+  height: 380px; /* Altura ideal restaurada para ver el mapa de 480px escalado */
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: #0f172a; /* Fondo oscuro del recuadro */
 }
 
@@ -921,34 +877,35 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   z-index: 10;
-  pointer-events: none; /* Permite que el mouse pase a través de él hacia las fotos */
+  pointer-events: none; /* Permite que el mouse pase a través de él hacia las capas */
 }
 
-/* ================= EFECTO HOVER (ACERCAMIENTO) ================= */
+/* ================= EFECTO HOVER (ACERCAMIENTO / ZOOM) ================= */
 
 .map-interactive-container:hover .layer-country {
   opacity: 0.1; /* El mapa completo se desvanece al fondo */
-  transform: scale(1.08); /* Ligero alejamiento/movimiento de perspectiva */
+  transform: scale(1.08); /* Ligera perspectiva de alejamiento */
 }
 
 .map-interactive-container:hover .layer-state {
-  opacity: 0.3; /* El estado brilla al máximo */
+  opacity: 1; /* El estado brilla al máximo */
   transform: scale(1.25); /* EFECTO ACERCAMIENTO: Se expande simulando una lupa */
-  filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.6)); /* Resplandor azul de alta gama */
 }
 
 /* Animación del radar (Halo de luz flotante) */
 .hq-pulse {
-  transform-origin: 345px 155px; /* Centro del pulso en San José de Guanipa */
-  animation: radarGlow 2s infinite ease-out;
+  transform-origin: 372px 182px; /* Centro del pulso alineado sobre San José de Guanipa */
+  animation: radarGlow 2.5s infinite ease-out;
 }
+
 .hq-pulse.delay-1 {
-  animation-delay: 1s;
+  animation-delay: 1.25s;
 }
 
 @keyframes radarGlow {
   0% {
-    transform: scale(0.3);
+    transform: scale(0.2);
     opacity: 1;
   }
   100% {
@@ -962,28 +919,32 @@ h1, h2, h3, h4 {
 .hq-center-dot,
 .hq-label {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Definimos el punto de origen de escala en la coordenada original */
-  transform-origin: 345px 145px; 
+  transform-origin: 372px 182px; /* Eje central sobre San José de Guanipa */
 }
 
-/* --- Posición con Hover (Cuando el mouse entra al contenedor) --- */
-.hq-pulse:hover {
-  transform-origin: 300px 115px; /* Centro del pulso en San José de Guanipa */
-  animation: radarGlow 2s infinite ease-out;
+.hq-center-dot {
+  filter: drop-shadow(0 0 8px #10b981);
 }
-/* El punto verde y su halo se mueven para compensar el Zoom del mapa de Anzoátegui */
+
+/* La etiqueta por defecto inicia transparente */
+.hq-label {
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Compensación y Reubicación de Posición al hacer Hover --- */
 .map-interactive-container:hover .hq-center-dot {
-  /* Ajusta estos valores de pixeles (X, Y) si es necesario para encajarlo perfectamente en tu SVG */
-  transform: translate(20px, 115px) scale(1.1); 
+  /* Desplazamiento calculado para compensar el zoom del mapa de Anzoátegui */
+  transform: translate(25px, 12px) scale(1.1); 
 }
 
 .map-interactive-container:hover .hq-pulse {
-  /* El radar se mueve y mantiene la animación de ondas en el nuevo punto */
-  animation: radarGlow 2s infinite ease-out;
-  transform: translate(20px, 115px);
+  /* Desplaza las ondas en sintonía con el punto */
+  transform: translate(25px, 12px);
 }
 
-/* La etiqueta flotante se desplaza para no tapar el punto reubicado */
+/* La etiqueta flotante se hace visible y se posiciona de forma legible */
 .map-interactive-container:hover .hq-label {
-  transform: translate(20px, 115px);
+  opacity: 1;
+  transform: translate(25px, 12px);
 }
