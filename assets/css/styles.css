@@ -808,7 +808,7 @@ h1, h2, h3, h4 {
     margin-top: 15px;
     line-height: 1.4;
 }
-
+/*
 .footer-copy {
     max-width: 1200px;
     margin: 60px auto 0 auto;
@@ -818,7 +818,7 @@ h1, h2, h3, h4 {
     font-size: 0.85rem;
     color: #475569;
 }
-
+*/
 .footer-copy {
   grid-column: 1 / -1; /* ¡La clave! Hace que ocupe desde la primera hasta la última columna */
   width: 100%;         /* Asegura que use todo el ancho disponible */
