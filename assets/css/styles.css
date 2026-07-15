@@ -989,7 +989,7 @@ h1, h2, h3, h4 {
 /* El radar se desplaza EXACTAMENTE igual que el punto verde y pulsa en su sitio */
 .map-interactive-container:hover .hq-pulse {
   /* Usamos el origen base original para que la escala del keyframe no se rompa */
-  transform-origin: 345px 145px; 
+  transform-origin: 145px 45px; 
   
   /* Aplicamos la misma traslación exacta que el punto verde para que viajen juntos */
   transform: translate(5px, 105px); 
