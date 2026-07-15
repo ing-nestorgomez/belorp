@@ -989,7 +989,7 @@ h1, h2, h3, h4 {
 /* El radar se traslada exactamente con la misma propiedad y se sincroniza su origen */
 .map-interactive-container:hover .hq-pulse {
   /* Establecemos el origen de escala EXACTAMENTE en el centro del círculo */
-  transform-origin: 345px 145px;
+  transform-origin: 350px 250px;
   
   /* Aplicamos exactamente la misma traslación que al punto estático */
   transform: translate(5px, 105px);
