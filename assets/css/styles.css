@@ -991,8 +991,8 @@ h1, h2, h3, h4 {
   /* Establecemos el origen de escala EXACTAMENTE en el centro del círculo */
   transform-origin: 350px 250px;
   
-  /* Aplicamos exactamente la misma traslación que al punto estático */
-  transform: translate(5px, 105px);
+  /* Aplicamos exactamente la misma traslación que al punto estático 
+  transform: translate(5px, 105px);*/
   
   /* Ejecutamos la animación de manera limpia */
   animation: radarGlow 2s infinite ease-out;
