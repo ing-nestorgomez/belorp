@@ -887,6 +887,19 @@ h1, h2, h3, h4 {
     100% { filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.8)); }
 }
 
+@keyframes radarGlow {
+  0% {
+    /* Mantiene la posición trasladada del hover mientras escala en 0.3 */
+    transform: translate(5px, 105px) scale(0.3);
+    opacity: 1;
+  }
+  100% {
+    /* Mantiene la posición trasladada del hover mientras escala en 1.8 */
+    transform: translate(5px, 105px) scale(1.8);
+    opacity: 0;
+  }
+}
+
 /* ############ MAPA ############### */
 
 /* Contenedor principal que agrupa las capas */
@@ -986,15 +999,15 @@ h1, h2, h3, h4 {
   transform: translate(5px, 105px) scale(1.1); 
 }
 
-/* El radar se traslada exactamente con la misma propiedad y se sincroniza su origen */
+/* El radar se desplaza EXACTAMENTE igual que el punto verde y pulsa en su sitio */
 .map-interactive-container:hover .hq-pulse {
-  /* Establecemos el origen de escala EXACTAMENTE en el centro del círculo */
-  transform-origin: 345px 145px;
+  /* Ambos deben compartir exactamente el mismo origen de coordenadas original */
+  transform-origin: 345px 145px; 
   
-  /* Aplicamos exactamente la misma traslación que al punto estático */
-  transform: translate(5px, 105px);
+  /* Aplicamos la misma traslación exacta que ahora reconoce nuestra animación */
+  transform: translate(5px, 105px); 
   
-  /* Ejecutamos la animación de manera limpia */
+  /* Activamos la animación corregida */
   animation: radarGlow 2s infinite ease-out;
 }
 
