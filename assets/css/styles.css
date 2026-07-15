@@ -989,7 +989,7 @@ h1, h2, h3, h4 {
 /* El radar cambia su origen, se traslada y mantiene la animación en perfecta sincronía */
 .map-interactive-container:hover .hq-pulse {
   /* Forzamos que el centro de la animación sea idéntico al del punto verde bajo el zoom */
-  transform-origin: 345px 155px; 
+  transform-origin: 20px 115px; 
   
   /* Eliminamos el 'translate' para evitar conflictos con la animación 'scale' */
   transform: none; 
