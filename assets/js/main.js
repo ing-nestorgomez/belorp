@@ -80,3 +80,16 @@ window.addEventListener('scroll', function() {
     header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.05)';
   }
 });
+
+// ============================================
+// HERO
+// ============================================
+// Animación interactiva de Paralaje sutil para el Hero
+  window.addEventListener('scroll', () => {
+    const scrollValue = window.pageYOffset;
+    const bgImageContainer = document.querySelector('.hero-parallax-bg');
+    if (bgImageContainer) {
+      // Desplaza el fondo más lento que el scroll para generar profundidad
+      bgImageContainer.style.transform = `translateY(${scrollValue * 0.3}px)`;
+    }
+  });
