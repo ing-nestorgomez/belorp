@@ -242,32 +242,145 @@ h1, h2, h3, h4 {
 }
 .text-center .section-title::after { left: 50%; transform: translateX(-50%); }
 
-/* ==========================================================================
-   5. SECCIÓN HERO
-   ========================================================================== */
+/* ==========================================
+   HERO CON GLASSMORPHISM Y PARALAJE SUTIL
+   ========================================== */
+
 .hero-section {
-  background: linear-gradient(135deg, #002266 0%, #0033a0 100%);
-  color: #ffffff;
-  padding: 100px 40px 80px;
-  text-align: center;
   position: relative;
+  height: 85vh; /* Ocupa el 85% de la altura de la pantalla */
+  min-height: 550px;
+  width: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hero-section::before {
-  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle at 80% 20%, rgba(245, 197, 24, 0.15) 0%, transparent 50%);
-  pointer-events: none;
-}
-.hero-title { font-size: 3rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-.hero-subtitle { font-size: 1.25rem; max-width: 800px; margin: 0 auto 32px; opacity: 0.9; font-weight: 300; line-height: 1.6; }
 
-.btn-primary {
-  display: inline-block; background-color: #da291c; color: #ffffff; padding: 14px 32px;
-  border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;
-  box-shadow: 0 4px 14px rgba(218, 41, 28, 0.4);
+/* Efecto Paralaje en el Fondo */
+.hero-parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* Sobredimensionado para permitir el desplazamiento por scroll */
+  z-index: 1;
+  transform: translateY(0);
+  will-change: transform;
 }
-.btn-primary:hover { background-color: #b81e14; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(218, 41, 28, 0.5); }
 
+.hero-parallax-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Capa oscura intermedia para suavizar el contraste de la imagen */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(3, 27, 78, 0.4) 0%, rgba(3, 27, 78, 0.75) 100%);
+  z-index: 2;
+}
+
+/* Contenedor principal alineado */
+.hero-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-start; /* Alinea la tarjeta a la izquierda para un look moderno */
+}
+
+/* La Tarjeta de Vidrio (Glassmorphism) */
+.hero-glass-card {
+  background: rgba(255, 255, 255, 0.05); /* Blanco muy transparente */
+  backdrop-filter: blur(14px); /* Suaviza y desenfoca la imagen industrial detrás */
+  -webkit-backdrop-filter: blur(14px); /* Compatibilidad con Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Borde sutil brillante */
+  border-radius: 24px;
+  padding: 50px;
+  max-width: 680px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  animation: cardFadeInUp 1s ease-out forwards;
+}
+
+/* Tipografía de la Tarjeta */
+.hero-glass-card .hero-title {
+  color: #ffffff;
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.hero-glass-card .hero-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  font-weight: 300;
+}
+
+/* Integración y mejoras a tu clase de botón existente (.btn-primary) */
+.hero-glass-card .btn-primary {
+  display: inline-block;
+  background-color: #d32f2f; /* Rojo/Naranja de tu marca */
+  color: #ffffff;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(211, 47, 47, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hero-glass-card .btn-primary:hover {
+  transform: translateY(-3px);
+  background-color: #f44336;
+  box-shadow: 0 12px 30px rgba(211, 47, 47, 0.6);
+}
+
+/* Transición suave de entrada */
+@keyframes cardFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ajustes Responsivos para móviles */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 100px 0 60px 0;
+  }
+  .hero-glass-card {
+    padding: 30px 20px;
+    margin: 0 10px;
+    border-radius: 16px;
+  }
+  .hero-glass-card .hero-title {
+    font-size: 2rem;
+  }
+  .hero-glass-card .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+}
 /* ==========================================================================
    6. SECCIÓN RESEÑA HISTÓRICA
    ========================================================================== */
