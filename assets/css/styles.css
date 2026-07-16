@@ -836,8 +836,101 @@ h1, h2, h3, h4 {
     border-radius: 50%;
 }
 
+/* ==========================================
+   11. REJILLA INTERACTIVA PARA LOGOS DE CLIENTES
+   ========================================== */
+.clients-interactive-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: #0f172a; /* Color pizarra oscuro a juego con tu menú */
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.clients-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 0 20px;
+  transition: all 0.5s ease;
+}
+
+/* Tarjeta con efecto "Foco" interactivo */
+.client-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.3s ease;
+}
+
+.client-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* EFECTO FOCO: Cuando pasas el mouse por la cuadrícula,
+   la tarjeta seleccionada se ilumina e infla, y las demás se atenúan */
+.clients-grid:hover .client-card {
+  opacity: 0.4; /* Atenúa todas por defecto al entrar a la zona */
+}
+
+.clients-grid .client-card:hover {
+  opacity: 1; /* Ilumina al 100% solo la que tiene el hover */
+  transform: translateY(-8px);
+  background: #ffffff;
+  border-color: rgba(211, 47, 47, 0.3); /* Guiño al rojo Proled */
+  box-shadow: 0 20px 40px rgba(3, 27, 78, 0.08);
+}
+
+.clients-grid .client-card:hover img {
+  filter: grayscale(0%) opacity(1);
+}
+
+/* Clase para ocultar tarjetas al filtrar mediante JS */
+.client-card.hide {
+  display: none !important;
+}
+
 /* ==========================================================================
-   11. INTERACTIVIDAD Y DISEÑO: SITE FOOTER (PREMIUM RE-ESTILIZADO)
+   12. INTERACTIVIDAD Y DISEÑO: SITE FOOTER (PREMIUM RE-ESTILIZADO)
    ========================================================================== */
 .site-footer {
     background-color: #020617; /* Fondo negro azulado de alta fidelidad */
@@ -996,7 +1089,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   12. MEDIA QUERIES (OPTIMIZACIÓN RESPONSIVE GLOBAL)
+   13. MEDIA QUERIES (OPTIMIZACIÓN RESPONSIVE GLOBAL)
    ========================================================================== */
 @media (max-width: 900px) {
   .historical-grid { grid-template-columns: 1fr; }
@@ -1040,7 +1133,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   13. KEYFRAMES ANIMACIONES
+   14. KEYFRAMES ANIMACIONES
    ========================================================================== */
 @keyframes radarPing {
     0% { transform: scale(0.5); opacity: 0.9; }
