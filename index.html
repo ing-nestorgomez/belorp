@@ -4,15 +4,12 @@ title: Inicio
 ---
 
 <section class="hero-section">
-  <!-- 1. Imagen de fondo para el efecto paralaje -->
   <div class="hero-parallax-bg">
     <img src="{{ site.baseurl }}/assets/images/portada.png" alt="Instalaciones Industriales Proled">
   </div>
   
-  <!-- 2. Capa oscura para dar uniformidad -->
   <div class="hero-overlay"></div>
 
-  <!-- 3. Contenedor del contenido con la tarjeta Glassmorphism -->
   <div class="hero-container">
     <div class="hero-glass-card">
       <h1 class="hero-title">Construcción y Servicios Eléctricos</h1>
@@ -235,7 +232,6 @@ title: Inicio
     </div>
   </section>
 
-  <!-- seccion de equipos -->
   <section class="fleet-section">
     <div class="fleet-container">
         <div class="fleet-header">
@@ -333,8 +329,6 @@ title: Inicio
         </div>
     </div>
 </section>
-  <!-- Fin seccion equipos -->
-
   <section class="clients-section" id="clientes">
     <div class="section-header">
       <span class="section-tagline">Alianzas Estratégicas</span>
@@ -342,25 +336,261 @@ title: Inicio
     </div>
     
     <div class="clients-container">
-      <p class="clients-intro">Contamos con la confianza de grandes corporaciones e instituciones que avalan la calidad de nuestra ejecución:</p>
-      <div class="clients-slider-mock">
-        <div class="client-logo-card">
-          <span class="client-bullet"></span>
-          <h4>PDVSA Exploración y Producción</h4>
+      <p class="clients-intro">Respaldados por la confianza de importantes corporaciones del sector energético y organismos gubernamentales de la región:</p>
+      
+      <div class="clients-filter-controls">
+        <button class="filter-btn active" onclick="filterCategory('all')">Todos</button>
+        <button class="filter-btn" onclick="filterCategory('petrolero')">Sector Petrolero / Industrial</button>
+        <button class="filter-btn" onclick="filterCategory('gobierno')">Gubernamental / Alcaldías</button>
+      </div>
+
+      <div class="clients-interactive-grid" id="clientsGrid">
+        
+        <div class="client-interactive-card petrolero">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/pdvsa-ep.png" alt="PDVSA Exploración y Producción">
+          </div>
+          <span class="sector-badge font-petrolero">Petróleo y Gas</span>
         </div>
-        <div class="client-logo-card">
-          <span class="client-bullet"></span>
-          <h4>PDVSA PETROPIAR</h4>
+
+        <div class="client-interactive-card petrolero">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/pdvsa-petropiar.png" alt="PDVSA Petropiar">
+          </div>
+          <span class="sector-badge font-petrolero">Petróleo y Gas</span>
         </div>
-        <div class="client-logo-card">
-          <span class="client-bullet"></span>
-          <h4>Gobierno Bolivariano</h4>
+
+        <div class="client-interactive-card petrolero">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/chevron.png" alt="Chevron Global Technology">
+          </div>
+          <span class="sector-badge font-petrolero">Petróleo y Gas</span>
         </div>
+
+        <div class="client-interactive-card petrolero">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/pdvsa-petroindependencia.png" alt="PDVSA Petroindependencia">
+          </div>
+          <span class="sector-badge font-petrolero">Petróleo y Gas</span>
+        </div>
+
+        <div class="client-interactive-card petrolero">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/pdvsa-indovenezolana.png" alt="Petrolera Indovenezolana">
+          </div>
+          <span class="sector-badge font-petrolero">Petróleo y Gas</span>
+        </div>
+
+        <div class="client-interactive-card petrolero">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/metor.png" alt="Metor S.A.">
+          </div>
+          <span class="sector-badge font-petrolero">Industrial</span>
+        </div>
+
+        <div class="client-interactive-card gobierno">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/gobierno-anzoategui.png" alt="Gobernación de Anzoátegui">
+          </div>
+          <span class="sector-badge font-gobierno">Público</span>
+        </div>
+
+        <div class="client-interactive-card gobierno">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/alcaldia-simon-rodriguez.png" alt="Alcaldía Simón Rodríguez - El Tigre">
+          </div>
+          <span class="sector-badge font-gobierno">Público</span>
+        </div>
+
+        <div class="client-interactive-card gobierno">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/alcaldia-lecheria.png" alt="Alcaldía de Lechería">
+          </div>
+          <span class="sector-badge font-gobierno">Público</span>
+        </div>
+
+        <div class="client-interactive-card gobierno">
+          <div class="card-glow-overlay"></div>
+          <div class="client-logo-wrapper">
+            <img src="{{ site.baseurl }}/assets/images/logos/alcaldia-miranda.png" alt="Alcaldía de Pariaguán - Miranda">
+          </div>
+          <span class="sector-badge font-gobierno">Público</span>
+        </div>
+
       </div>
     </div>
   </section>
 
 </div>
+
+<style>
+  .clients-filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 45px 0;
+    flex-wrap: wrap;
+  }
+
+  .clients-filter-controls .filter-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4b5563;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  /* Al hacer hover o estar activo, combina un tono de pizarra oscuro con el rojo corporativo en el borde */
+  .clients-filter-controls .filter-btn:hover, 
+  .clients-filter-controls .filter-btn.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #d32f2f;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+  }
+
+  .clients-interactive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 10px;
+    transition: all 0.5s ease;
+  }
+
+  /* Tarjeta interactiva con estética de ingeniería (esquinas redondeadas y borde sutil) */
+  .client-interactive-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.3s ease,
+                border-color 0.3s ease;
+  }
+
+  .client-logo-wrapper {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .client-logo-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Los logotipos inician en escala de grises suave para pulcritud visual corporativa */
+    filter: grayscale(100%) opacity(0.65);
+    transition: all 0.4s ease;
+  }
+
+  .sector-badge {
+    margin-top: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #f3f4f6;
+    color: #6b7280;
+    transition: all 0.3s ease;
+  }
+
+  /* --- EFECTO FOCO DINÁMICO ---
+     Cuando el mouse entra en el contenedor, las tarjetas vecinas se atenúan de forma elegante */
+  .clients-interactive-grid:hover .client-interactive-card {
+    opacity: 0.45;
+  }
+
+  /* Tarjeta activa bajo Hover: recupera color original, sube y activa un borde fino rojo Proled */
+  .clients-interactive-grid .client-interactive-card:hover {
+    opacity: 1;
+    transform: translateY(-8px);
+    border-color: rgba(211, 47, 47, 0.4);
+    box-shadow: 0 20px 35px rgba(15, 23, 42, 0.08);
+  }
+
+  .clients-interactive-grid .client-interactive-card:hover img {
+    filter: grayscale(0%) opacity(1); /* Despierta el color real del logo */
+  }
+
+  .clients-interactive-grid .client-interactive-card:hover .sector-badge.font-petrolero {
+    background: rgba(211, 47, 47, 0.08);
+    color: #d32f2f;
+  }
+
+  .clients-interactive-grid .client-interactive-card:hover .sector-badge.font-gobierno {
+    background: rgba(33, 150, 243, 0.08);
+    color: #2196f3;
+  }
+
+  /* Ocultar elementos filtrados */
+  .client-interactive-card.hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    .clients-interactive-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .clients-interactive-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  function filterCategory(category) {
+    const cards = document.querySelectorAll('.client-interactive-card');
+    const buttons = document.querySelectorAll('.clients-filter-controls .filter-btn');
+    
+    // Cambiar estado activo en botones
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+
+    // Animación de salida y filtrado
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.classList.remove('hidden');
+      } else {
+        if (card.classList.contains(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      }
+    });
+  }
+</script>
 
 <script>
   // Base de datos de proyectos completa y sincronizada de forma exacta con el reporte físico
