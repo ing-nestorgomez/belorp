@@ -887,15 +887,14 @@ h1, h2, h3, h4 {
     100% { filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.8)); }
 }
 
-@keyframes radarGlow {
+/* Esta animación mantiene al radar soldado en su posición trasladada durante cada fotograma */
+@keyframes radarGlowHover {
   0% {
-    /* Mantiene la posición trasladada del hover mientras escala en 0.3 */
-    transform: translate(5px, 105px) scale(0.3);
+    transform: translate(5px, 105px) scale(0.3) !important;
     opacity: 1;
   }
   100% {
-    /* Mantiene la posición trasladada del hover mientras escala en 1.8 */
-    transform: translate(5px, 105px) scale(1.8);
+    transform: translate(5px, 105px) scale(1.8) !important;
     opacity: 0;
   }
 }
@@ -928,7 +927,7 @@ h1, h2, h3, h4 {
 .layer-country {
   opacity: 0.9;
   transform: scale(1);
-   filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
+  filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
 }
 
 /* Capa 2: Anzoátegui empieza sutil o integrado */
@@ -962,26 +961,6 @@ h1, h2, h3, h4 {
   filter: drop-shadow(0 0 12px #3b82f6); /* Resplandor azul neon a tu mapa */
 }
 
-/* Animación del radar (Halo de luz flotante) */
-.hq-pulse {
-  transform-origin: 345px 155px; /* Centro del pulso en San José de Guanipa */
-  animation: radarGlow 2s infinite ease-out;
-}
-.hq-pulse.delay-1 {
-  animation-delay: 1s;
-}
-
-@keyframes radarGlow {
-  0% {
-    transform: scale(0.3);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
-
 /* --- Posición por defecto (Sin Hover) --- */
 .hq-pulse,
 .hq-center-dot,
@@ -989,6 +968,15 @@ h1, h2, h3, h4 {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   /* Definimos el punto de origen de escala en la coordenada original */
   transform-origin: 345px 145px; 
+}
+
+/* Configuración base del radar (estático por defecto en El Tigre) */
+.hq-pulse {
+  opacity: 0.8;
+}
+
+.hq-pulse.delay-1 {
+  animation-delay: 1s;
 }
 
 /* --- Posición con Hover (Cuando el mouse entra al contenedor) --- */
@@ -999,16 +987,11 @@ h1, h2, h3, h4 {
   transform: translate(5px, 105px) scale(1.1); 
 }
 
-/* El radar se desplaza EXACTAMENTE igual que el punto verde y pulsa en su sitio */
+/* El radar corre la animación específica que congela su traslación y evita desfasarse */
 .map-interactive-container:hover .hq-pulse {
-  /* Ambos deben compartir exactamente el mismo origen de coordenadas original */
-  transform-origin: 345px 145px; 
-  
-  /* Aplicamos la misma traslación exacta que ahora reconoce nuestra animación */
-  transform: translate(5px, 105px); 
-  
-  /* Activamos la animación corregida */
-  animation: radarGlow 2s infinite ease-out;
+  transform-origin: 345px 145px;  
+  opacity: 1;
+  animation: radarGlowHover 2s infinite ease-out !important;
 }
 
 /* La etiqueta flotante se desplaza en perfecta armonía */
