@@ -1249,12 +1249,12 @@ h1, h2, h3, h4 {
   transform: translate(5px, 105px) scale(1.1); 
 }
 
-/* El radar corre la animación específica que congela su traslación y evita desfasarse */
+/* El radar corre la animación específica que congela su traslación y evita desfasarse * /
 .map-interactive-container:hover .hq-pulse {
   transform-origin: 345px 145px;  
   opacity: 1;
   animation: radarGlowHover 2s infinite ease-out !important;
-}
+} */
 
 /* La etiqueta flotante se desplaza en perfecta armonía */
 .map-interactive-container:hover .hq-label {
