@@ -307,6 +307,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: -15px;
 }
 
 /* Efecto Paralaje en el Fondo */
@@ -356,7 +357,7 @@ h1, h2, h3, h4 {
   backdrop-filter: blur(14px); /* Suaviza y desenfoca la imagen industrial detrás */
   -webkit-backdrop-filter: blur(14px); /* Compatibilidad con Safari */
   border: 1px solid rgba(255, 255, 255, 0.15); /* Borde sutil brillante */
-  border-radius: 24px;
+  border-radius: 0 24px;
   padding: 50px;
   max-width: 680px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
