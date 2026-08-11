@@ -944,164 +944,126 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   12. INTERACTIVIDAD Y DISEÑO: SITE FOOTER (PREMIUM RE-ESTILIZADO)
+   SITE FOOTER (ESTILO CLIENTE EXACTO)
    ========================================================================== */
 .site-footer {
-    background-color: #020617; /* Fondo negro azulado de alta fidelidad */
-    color: #94a3b8;
-    padding: 80px 20px 40px 20px;
-    font-family: 'Inter', sans-serif;
-    border-top: 2px solid #1e293b;
-    margin-top: 40px;
+  background-color: #181818; /* Fondo gris oscuro mate */
+  color: #a3a3a3;
+  padding: 60px 40px 30px 40px;
+  font-family: 'Inter', sans-serif;
+  border-top: none;
+  margin-top: 0;
 }
 
 .footer-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.5fr; /* Proporciones exactas de columnas */
+  gap: 30px;
+  align-items: start;
 }
 
+/* Columna del Logo */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.footer-logo {
+  max-width: 180px;
+  height: auto;
+}
+
+/* Encabezados de las columnas */
 .footer-col h4 {
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    margin-bottom: 25px;
-    text-transform: uppercase;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+  text-transform: none; /* Title Case como en la imagen del cliente */
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-links li {
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    font-size: 0.95rem;
-    color: #94a3b8;
-}
-
-.footer-icon {
-    margin-right: 12px;
-    font-size: 1.1rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
 }
 
 .footer-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
+  color: #a3a3a3;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .footer-links a:hover {
-    color: #60a5fa;
-    transform: translateX(5px);
+  color: #ffffff;
+  transform: none;
 }
 
-/* Módulo del Mapa Real */
-.footer-map-col {
-    display: flex;
-    flex-direction: column;
+/* Iconos vectoriales integrados */
+.footer-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  fill: #a3a3a3;
+  flex-shrink: 0;
 }
 
-.map-wrapper {
-    background: #0f172a;
-    border: 1px solid #1e293b;
-    border-radius: 16px;
-    padding: 20px;
-    position: relative;
-    box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.5);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
-    overflow: hidden;
+/* Dirección */
+.address-wrapper {
+  display: flex;
+  align-items: flex-start;
 }
 
-.map-wrapper:hover {
-    border-color: #2563eb;
-    box-shadow: 0 0 25px rgba(37, 99, 235, 0.15), inset 0 4px 20px rgba(0, 0, 0, 0.5);
+.location-icon {
+  margin-top: 3px;
 }
 
-.venezuela-map-svg {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.7));
+.address-wrapper p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #a3a3a3;
 }
 
-.venezuela-mesh path {
-    transition: fill 0.3s ease, stroke 0.3s ease;
-    cursor: pointer;
-}
-
-.venezuela-mesh path:hover {
-    fill: #1e293b;
-    stroke: #475569;
-}
-
-/* Animación Respiración e Iluminación de Anzoátegui */
-.state-anzoategui {
-    cursor: pointer;
-    animation: anzoateguiGlow 3s ease-in-out infinite alternate;
-}
-
-/* Animación del Radar en El Tigre (Doble Onda) */
-.hq-pulse {
-    transform-origin: 355px 175px;
-    animation: radarPing 2.5s cubic-bezier(0.1, 0, 0, 1) infinite;
-}
-
-.hq-pulse.delay-1 {
-    animation-delay: 1.25s;
-}
-
-.hq-center-dot {
-    filter: drop-shadow(0 0 8px #10b981);
-}
-
-.hq-label {
-    opacity: 0.4;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: translate(-2px, -2px);
-}
-
-.map-wrapper:hover .hq-label {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
-.map-caption {
-    display: block;
-    font-size: 0.75rem;
-    color: #475569;
-    text-align: center;
-    margin-top: 15px;
-    line-height: 1.4;
-}
-/*
+/* Copyright */
 .footer-copy {
-    max-width: 1200px;
-    margin: 60px auto 0 auto;
-    padding-top: 25px;
-    border-top: 1px solid #1e293b;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #475569;
-}
-*/
-.footer-copy {
-  grid-column: 1 / -1; /* ¡La clave! Hace que ocupe desde la primera hasta la última columna */
-  width: 100%;         /* Asegura que use todo el ancho disponible */
-  text-align: center;  /* Centra el texto de manera horizontal */
-  padding-top: 20px;   /* Añade espacio superior para separarlo de la rejilla */
-  margin-top: 30px;    /* Margen para que no quede pegado a las columnas */
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Delicada línea divisoria opcional */
-  font-size: 13px;
-  color: #94a3b8;      /* Color suavizado para mejorar la lectura */
+  grid-column: 1 / -1;
+  width: 100%;
+  text-align: center;
+  padding-top: 40px;
+  margin-top: 40px;
+  border-top: none;
+  font-size: 0.85rem;
+  color: #737373;
 }
 
+/* Responsivo para celulares/tablets */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
 /* ==========================================================================
    13. MEDIA QUERIES (OPTIMIZACIÓN RESPONSIVE GLOBAL)
    ========================================================================== */
