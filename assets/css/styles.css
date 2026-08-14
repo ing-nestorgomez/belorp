@@ -139,6 +139,34 @@ h1, h2, h3, h4 {
 .stripes-container:hover .stripe-blue { box-shadow: 0 4px 16px rgba(0, 51, 160, 0.4); }
 .stripes-container:hover .stripe-yellow { box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4); }
 
+/* --- AJUSTES EXCLUSIVOS PARA PANTALLAS MÓVILES (MEDIA QUERY) --- */
+@media (max-width: 768px) {
+  .stripes-container {
+    left: -60px;
+    width: calc(100% + 60px);
+    height: 100%;
+  }
+
+  /* Ajustamos los anchos para que luzcan estilizadas en pantallas estrechas */
+  .stripe-red {
+    width: 60%;
+    height: 100%; /* Cubre todo el alto de la barra */
+    clip-path: polygon(0px 0px, 100% 0%, 90% 100%, 0px 100%);
+  }
+
+  .stripe-blue {
+    width: 42%;
+    height: 70%; /* Ocupa un 70% del alto */
+    clip-path: polygon(0px 0px, 100% 0%, 92% 100%, 0px 100%);
+  }
+
+  .stripe-yellow {
+    width: 24%;
+    height: 40%; /* Ocupa un 40% del alto */
+    clip-path: polygon(0px 0px, 100% 0%, 88% 100%, 0px 100%);
+  }
+}
+
 /* ==========================================================================
    3. LOGO Y ADAPTACIÓN EN PANTALLAS PEQUEÑAS
    ========================================================================== */
