@@ -6,24 +6,25 @@
       <div class="stripe stripe-yellow"></div>
     </div>
     
-    <div class="logo-container" id="logoTrigger" style="position: relative;">
+    <!-- El logo y el menú desplegable juntos -->
+    <div class="logo-container" id="logoTrigger">
       <div class="logo-icon">
         <picture>
-          <!-- En pantallas de 768px o menos, carga solo el isotipo -->
           <source srcset="{{ '/assets/images/logo-icon.svg' | relative_url }}" media="(max-width: 768px)">
-          <!-- En pantallas mayores a 768px (o por defecto), carga el logo completo -->
           <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Proled">
         </picture>
       </div>
+
+      <!-- El menú ahora está DENTRO de logo-container -->
+      <nav class="dropdown-menu" id="dropdownMenu">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}" class="active">Inicio</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <nav class="dropdown-menu" id="dropdownMenu">
-      <ul>
-        <li><a href="{{ '/' | relative_url }}" class="active">Inicio</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
   </div>
 </header>
