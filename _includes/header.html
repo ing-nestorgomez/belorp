@@ -1,21 +1,24 @@
 <header class="top-bar">
   <div class="container">
+    <!-- Franjas animadas a la izquierda -->
     <div class="stripes-container">
       <div class="stripe stripe-red"></div>
       <div class="stripe stripe-blue"></div>
       <div class="stripe stripe-yellow"></div>
     </div>
     
-    <!-- El logo y el menú desplegable juntos -->
+    <!-- Logo e Isotipo con Menú Desplegable dentro -->
     <div class="logo-container" id="logoTrigger">
       <div class="logo-icon">
         <picture>
+          <!-- Isotipo en pantallas de 768px o menos -->
           <source srcset="{{ '/assets/images/logo-icon.svg' | relative_url }}" media="(max-width: 768px)">
+          <!-- Logo completo en pantallas grandes -->
           <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="Logo Proled">
         </picture>
       </div>
 
-      <!-- El menú ahora está DENTRO de logo-container -->
+      <!-- Menú Flotante Glassmorphism -->
       <nav class="dropdown-menu" id="dropdownMenu">
         <ul>
           <li><a href="{{ '/' | relative_url }}" class="active">Inicio</a></li>
