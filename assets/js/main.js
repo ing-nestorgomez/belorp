@@ -34,7 +34,8 @@ function toggleMenu(e) {
   if (menuOpen) {
     dropdownMenu.classList.add('active');
     overlay.classList.add('active');
-    logoTrigger.style.backgroundColor = '#f0f4ff';
+    /*logoTrigger.style.backgroundColor = '#f0f4ff';*/
+    logoTrigger.style.backgroundColor = 'transparent';
   } else {
     dropdownMenu.classList.remove('active');
     overlay.classList.remove('active');
