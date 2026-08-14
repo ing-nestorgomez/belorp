@@ -21,7 +21,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   2. HEADER FIJO Y FRANJAS CORPORATIVAS
+   HEADER FIJO Y FRANJAS CORPORATIVAS
    ========================================================================== */
 .top-bar {
   position: fixed;
@@ -61,6 +61,7 @@ h1, h2, h3, h4 {
   overflow: visible;
   margin: 0;
   padding: 0;
+  pointer-events: none; /* Evita que las franjas bloqueen el cursor si cubren pantalla */
 }
 
 .stripe {
@@ -73,6 +74,7 @@ h1, h2, h3, h4 {
   transform: translateX(-100%);
   margin: 0;
   padding: 0;
+  pointer-events: auto;
 }
 
 /* Franja Roja */
@@ -128,36 +130,23 @@ h1, h2, h3, h4 {
 .stripes-container:hover .stripe-blue { box-shadow: 0 4px 16px rgba(0, 51, 160, 0.4); }
 .stripes-container:hover .stripe-yellow { box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4); }
 
-/* Logo */
-.top-bar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
+/* ==========================================================================
+   3. LOGO Y ADAPTACIÓN RESPONSIVA
+   ========================================================================== */
 
-/* Logo alineado a la derecha */
 .logo-container {
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 8px;
   transition: all 0.3s ease;
-  z-index: 1002;
+  z-index: 1002; /* Coloca el logo por encima de las franjas si interactúan */
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: auto; /* <--- EMPUJA EL LOGO A LA DERECHA */
 }
 
 .logo-container:hover { 
-  background-color: #f5f5f5; 
-}
-
-/* Evita que los hijos del logo capturen el clic en lugar del #logoTrigger */
-.logo-icon,
-.logo-icon picture,
-.logo-icon img {
-  pointer-events: none; /* <--- SOLUCIÓN AL MENÚ / CLIC EN JS */
+  background-color: rgba(0, 0, 0, 0.04); 
 }
 
 .logo-icon picture {
@@ -172,81 +161,78 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
-/* Ajuste opcional para dispositivos móviles */
+/* Adaptación para pantallas pequeñas */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px; /* Reduce el margen lateral en móviles para separarlo del borde derecho */
+  }
+
   .logo-icon img {
-    height: 40px;
+    height: 38px; /* Tamaño idóneo para el isotipo en teléfonos */
   }
 }
 
-/* ==========================================
-   3. MENÚ DESPLEGABLE CON ESTILO GLASSMORPHISM (OPTIMIZADO PARA FONDO CLARO Y OSCURO)
-   ========================================== */
+/* ==========================================================================
+   4. MENÚ DESPLEGABLE (GLASSMORPHISM)
+   ========================================================================== */
 
-/* Contenedor principal de la lista del menú (OCULTO POR DEFECTO) */
 .dropdown-menu {
   position: absolute;
-  /* Centrado horizontal exacto respecto al logo (que mide 100%) */
-  top: calc(100% + 15px); /* Espacio prudente por debajo de la barra */
-  left: 50%;
+  top: calc(100% + 12px);
+  right: 0; /* Se alinea con el borde derecho del logo */
   
-  /* ESTADO INICIAL: Oculto y desplazado hacia abajo para una entrada elegante */
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%) translateY(10px);
+  transform: translateY(10px);
   
-  /* Efecto Vidrio Esmerilado Oscuro (Asegura contraste sobre blanco y azul) */
-  background: rgba(15, 23, 42, 0.75); /* Tono pizarra/azul oscuro traslúcido */
-  backdrop-filter: blur(16px); /* Desenfoque del fondo */
+  /* Vidrio Esmerilado Oscuro */
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12); /* Borde sutil brillante */
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   
-  width: 180px; /* Ancho idóneo para el menú vertical */
+  width: 180px;
   padding: 10px;
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.35); /* Sombra oscura para despegarse del fondo */
-  z-index: 1000;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.35);
+  z-index: 1005;
   
-  /* Transición ultra suave para la aparición física y visual */
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
 }
 
-/* ACTIVACIÓN POR HOVER: 
-   Cuando el usuario pasa el cursor sobre el logo, el menú emerge y se hace visible */
+/* Activación al pasar el cursor por el logo */
 .logo-container:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0); /* Regresa a su posición original */
+  transform: translateY(0);
 }
 
-/* El "Pico" o Indicador Triangular Superior (Efecto Gota de Cristal Oscuro) */
+/* Pico / Indicador Triangular Superior apuntando al logo */
 .dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -8px; /* Sobresale hacia arriba de la caja */
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg); /* Rombo de 45 grados */
+  top: -8px;
+  right: 20px; /* Posicionado hacia la derecha */
+  transform: rotate(45deg);
   width: 16px;
   height: 16px;
   
-  /* Replica exactamente el vidrio oscuro del menú */
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   
-  /* Solo dibuja los bordes superiores que apuntan al logo */
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   border-left: 1px solid rgba(255, 255, 255, 0.12);
-  z-index: -1; /* Detrás del texto */
+  z-index: -1;
 }
 
-/* Limpieza de la lista nativa */
+/* Lista del Menú */
 .dropdown-menu ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column; /* Despliegue de arriba a abajo */
+  flex-direction: column;
   gap: 4px;
 }
 
@@ -255,7 +241,6 @@ h1, h2, h3, h4 {
   padding: 0;
 }
 
-/* Estilos de los Enlaces en Blanco para contraste garantizado */
 .dropdown-menu a {
   display: block;
   color: #ffffff; 
@@ -268,18 +253,16 @@ h1, h2, h3, h4 {
   text-align: left;
 }
 
-/* Efecto Hover interactivo */
 .dropdown-menu a:hover {
-  background: rgba(255, 255, 255, 0.12); /* Brillo sutil sobre el fondo oscuro */
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  transform: translateX(3px); /* Movimiento dinámico lateral */
+  transform: translateX(3px);
 }
 
-/* Opción Activa (Rojo Corporativo Proled destacado) */
 .dropdown-menu a.active {
-  background: rgba(211, 47, 47, 0.3); /* Fondo rojo semitransparente un poco más intenso */
+  background: rgba(211, 47, 47, 0.3);
   color: #ffffff;
-  border-left: 3px solid #d32f2f; /* Borde rojo destacado */
+  border-left: 3px solid #d32f2f;
 }
 
 /* ==========================================================================
