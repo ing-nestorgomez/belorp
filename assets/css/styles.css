@@ -149,14 +149,14 @@ h1, h2, h3, h4 {
 
   /* Ajustamos los anchos para que luzcan estilizadas en pantallas estrechas */
   .stripe-red {
-    width: 60%;
+    width: 90%;
     height: 100%; /* Cubre todo el alto de la barra */
     clip-path: polygon(0px 0px, 100% 0%, 90% 100%, 0px 100%);
   }
 
   .stripe-blue {
-    width: 42%;
-    height: 70%; /* Ocupa un 70% del alto */
+    width: 60%;
+    height: 80%; /* Ocupa un 70% del alto */
     clip-path: polygon(0px 0px, 100% 0%, 92% 100%, 0px 100%);
   }
 
@@ -1168,11 +1168,11 @@ h1, h2, h3, h4 {
   .footer-col h4 { margin-bottom: 15px; }
   .hq-label { opacity: 1; }
 
-  /* Ajuste de franjas en móvil */
+  /* Ajuste de franjas en móvil *  /
   .stripes-container { height: 30px; }
   .stripe-red { height: 210%; }
   .stripe-blue { width: 50%; height: 120%; }
-  .stripe-yellow { width: 40%; height: 50%; }
+  .stripe-yellow { width: 40%; height: 50%; } */
 }
 
 /* ==========================================================================
