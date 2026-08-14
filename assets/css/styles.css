@@ -139,9 +139,30 @@ h1, h2, h3, h4 {
   align-items: center;
   position: relative;
 }
-.logo-container:hover { background-color: #f5f5f5; }
-.logo-icon img { height: 50px; width: auto; display: block; }
 
+.logo-container:hover { 
+  background-color: #f5f5f5; 
+}
+
+/* Aseguramos que la etiqueta picture y la imagen respeten el tamaño */
+.logo-icon picture {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon img { 
+  height: 50px; 
+  width: auto; 
+  display: block; 
+  object-fit: contain;
+}
+
+/* Opcional: Ajuste de padding/tamaño para móviles si el isotipo es muy alto */
+@media (max-width: 768px) {
+  .logo-icon img {
+    height: 40px; /* Puedes ajustar la altura del isotipo en móvil aquí */
+  }
+}
 /* ==========================================
    3. MENÚ DESPLEGABLE CON ESTILO GLASSMORPHISM (OPTIMIZADO PARA FONDO CLARO Y OSCURO)
    ========================================== */
