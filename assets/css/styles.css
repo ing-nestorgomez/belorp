@@ -21,7 +21,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   2. HEADER FIJO Y FRANJAS CORPORATIVAS
+   2. HEADER FIJO Y FRANJAS CORPORATIVAS (INTACTO)
    ========================================================================== */
 .top-bar {
   position: fixed;
@@ -39,7 +39,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.top-bar .container {
+.container {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 40px;
@@ -61,7 +61,6 @@ h1, h2, h3, h4 {
   overflow: visible;
   margin: 0;
   padding: 0;
-  pointer-events: none; /* Evita que las franjas bloqueen el cursor si cubren pantalla */
 }
 
 .stripe {
@@ -74,7 +73,6 @@ h1, h2, h3, h4 {
   transform: translateX(-100%);
   margin: 0;
   padding: 0;
-  pointer-events: auto;
 }
 
 /* Franja Roja */
@@ -131,7 +129,7 @@ h1, h2, h3, h4 {
 .stripes-container:hover .stripe-yellow { box-shadow: 0 4px 16px rgba(245, 197, 24, 0.4); }
 
 /* ==========================================================================
-   3. LOGO Y ADAPTACIÓN RESPONSIVA
+   3. LOGO Y ADAPTACIÓN EN PANTALLAS PEQUEÑAS
    ========================================================================== */
 
 .logo-container {
@@ -139,11 +137,10 @@ h1, h2, h3, h4 {
   padding: 6px 10px;
   border-radius: 8px;
   transition: all 0.3s ease;
-  z-index: 1002; /* Coloca el logo por encima de las franjas si interactúan */
+  z-index: 1002;
   display: flex;
   align-items: center;
   position: relative;
-  margin-left: auto; /* Empuja el logo hacia la derecha dentro del padding de container */
 }
 
 .logo-container:hover { 
@@ -162,18 +159,15 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
-/* Adaptación para pantallas pequeñas */
+/* Ajuste directo sobre el logo para pantallas pequeñas */
 @media (max-width: 768px) {
-  .top-bar .container {
-    padding: 0 20px; /* <--- Crea un espacio interno para que el logo no toque el borde derecho */
-  }
-
-  .stripe-red {
-    width: 50%; /* Reduce la franja roja en móviles para dar suficiente aire al isotipo */
+  /* Añadimos un margen directamente a la derecha del logo en móviles */
+  .logo-container {
+    margin-right: 15px; 
   }
 
   .logo-icon img {
-    height: 38px; /* Tamaño idóneo para el isotipo en teléfonos */
+    height: 38px; /* Altura idónea del isotipo */
   }
 }
 
@@ -184,7 +178,7 @@ h1, h2, h3, h4 {
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 12px);
-  right: 0; /* Se alinea con el borde derecho del logo */
+  right: 0;
   
   opacity: 0;
   visibility: hidden;
@@ -212,12 +206,12 @@ h1, h2, h3, h4 {
   transform: translateY(0);
 }
 
-/* Pico / Indicador Triangular Superior apuntando al logo */
+/* Pico / Indicador Triangular Superior */
 .dropdown-menu::before {
   content: '';
   position: absolute;
   top: -8px;
-  right: 18px; /* Posicionado centrado bajo el isotipo en móviles */
+  right: 18px;
   transform: rotate(45deg);
   width: 16px;
   height: 16px;
