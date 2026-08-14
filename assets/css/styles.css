@@ -165,7 +165,7 @@ html {
   }
 
   .stripe-yellow {
-    width: 24%;
+    width: 40%;
     height: 40%; /* Ocupa un 40% del alto */
     clip-path: polygon(0px 0px, 100% 0%, 88% 100%, 0px 100%);
   }
