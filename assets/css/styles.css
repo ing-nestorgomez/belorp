@@ -380,28 +380,19 @@ html {
   will-change: transform;
 }
 
+.hero-parallax-bg picture,
 .hero-parallax-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-/* Capa oscura intermedia */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background: radial-gradient(circle, rgba(3, 27, 78, 0.4) 0%, rgba(3, 27, 78, 0.75) 100%); */
-  z-index: 2;
+  display: block;
 }
 
 /* Contenedor principal alineado */
 .hero-container {
   position: relative;
-  z-index: 3;
+  z-index: 2; /* Ajustado al remover la capa oscura */
   width: 100%;
   max-width: 1200px;
   padding: 0 20px;
@@ -411,16 +402,16 @@ html {
 
 /* La Tarjeta de Vidrio (Glassmorphism) */
 .hero-glass-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.35); /* Fondo oscuro translúcido para asegurar contraste con la imagen sin overlay */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0 24px;
   padding: 50px;
   max-width: 680px;
   width: 100%;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   animation: cardFadeInUp 1s ease-out forwards;
 }
 
@@ -435,11 +426,11 @@ html {
 }
 
 .hero-glass-card .hero-subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 1.15rem;
   line-height: 1.6;
   margin-bottom: 35px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* Integración de botón */
@@ -482,19 +473,19 @@ html {
   }
   
   .hero-container {
-    padding: 0 12px; /* Amplía el espacio de la tarjeta dentro de la pantalla */
+    padding: 0 12px;
   }
 
   .hero-glass-card {
     padding: 28px 20px;
     margin: 0;
     border-radius: 0 16px;
-    width: 100%; /* <--- Ocupa todo el ancho en móviles */
+    width: 100%;
     max-width: 100%;
   }
 
   .hero-glass-card .hero-title {
-    font-size: 1.65rem; /* <--- Texto más pequeño para evitar saltos bruscos */
+    font-size: 1.65rem;
     line-height: 1.25;
     margin-bottom: 14px;
   }
