@@ -5,10 +5,22 @@ title: Inicio
 
 <section class="hero-section">
   <div class="hero-parallax-bg">
-    <img src="{{ site.baseurl }}/assets/images/portada.jpg" alt="Instalaciones Industriales Proled">
+    <picture>
+      <!-- Versión para dispositivos móviles (si decides subir portada-mobile.webp más adelante) -->
+      <source media="(max-width: 768px)" srcset="{{ site.baseurl }}/assets/images/portada.webp" type="image/webp">
+      
+      <!-- Versión estándar en WebP -->
+      <source srcset="{{ site.baseurl }}/assets/images/portada.webp" type="image/webp">
+      
+      <!-- Fallback en JPG por compatibilidad -->
+      <img src="{{ site.baseurl }}/assets/images/portada.jpg" 
+           alt="Instalaciones Industriales Proled" 
+           fetchpriority="high" 
+           decoding="sync"
+           width="1920" 
+           height="1200">
+    </picture>
   </div>
-  
-  <div class="hero-overlay"></div>
 
   <div class="hero-container">
     <div class="hero-glass-card">
