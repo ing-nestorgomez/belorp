@@ -584,7 +584,7 @@ html {
 }
 
 .search-box-container input {
-  /* width: 100%; */
+  width: 70%;
   padding: 12px 16px 12px 46px;
   border: 1.5px solid #e2e8f0;
   border-radius: 12px;
