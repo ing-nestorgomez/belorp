@@ -1304,3 +1304,19 @@ html {
   transform-origin: 345px 145px;
   transform: translate(5px, 105px);
 }
+
+/* prueba para eliminar espacio bajo el header en movil */
+@media (max-width: 768px) {
+  /* 1. Aseguramos que el body no agregue espacio extra no deseado */
+  body {
+    padding-top: 60px; /* Igual a la altura de la top-bar en móvil */
+  }
+
+  /* 2. Ajustamos la sección Hero para que se pegue al borde */
+  .hero-section {
+    height: auto;
+    margin-top: 0; /* Remueve cualquier margen negativo o positivo desalineado */
+    padding-top: 40px; /* Ajusta este padding interno para dar espacio arriba al texto sin separar el fondo */
+    padding-bottom: 60px;
+  }
+}
